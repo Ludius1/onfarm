@@ -1,0 +1,44 @@
+.Section_header {
+    padding: 40px 80px;
+}
+.ads__whole__container {
+    padding-top: 20px;
+}
+.All-section__head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.All-section__head  span {
+    font-family: var(--pri-font-family);
+    font-size: 24px;
+    letter-spacing: -.3px;
+    font-weight: 700;
+    color: #2D2A6E;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.All-section__head  small{
+    display: flex;
+    align-items: center;
+    color: #79819C;
+    font-size: 17px;
+    font-weight: 400;
+}
+.All-section__head  small span{
+    display: flex;
+    align-items: center;
+    color: #79819C;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .Section_header {
+        padding: 40px 20px;
+    }
+}

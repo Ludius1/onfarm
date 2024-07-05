@@ -1,0 +1,257 @@
+.card__section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;  
+
+}
+.each__card {
+    width: 100%;
+}
+.card {
+    border: 1px solid #ececec;
+    border-radius: 8px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: white;
+}
+.product__image {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.product__details {
+    padding: 15px 10px;
+    width: 100%;
+}
+.card small {
+    font-size: 14px;
+    color: #79819C;
+}
+.clse {
+    display: block;
+}
+.grading {
+    color: #fcb80e;
+    display: flex;
+    gap: 3px;
+    padding: 12px 0;
+    font-size: 14px;
+}
+.product__name {
+    font-size: 18px;
+    color: #2D2A6E;
+    font-weight: 400;
+    line-height: 18px;
+}
+.price {
+    color: #EA0D42;
+    font-size: 20px;
+    align-items: center;
+    gap: 8px;
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+}
+.price small {
+    font-size: 16px;
+    color: #4D5574;
+    text-decoration: line-through;
+}
+.left__positioning .desc {
+    background-color: #12b7ce;
+    color: white;
+    font-size: 11px;
+    display: flex;
+}
+.left__positioning .badge {
+    background-color: #facfd4;
+    color: #ea0d42;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+}
+.sold {
+    font-weight: 400;
+    color: #4D5574;
+}
+.sold small {
+    font-weight: 600;
+    font-size: 15px;
+    color: #05070e;
+}
+.hover {
+    z-index: 999999;
+    /* overflow: hidden; */
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+}
+.hover small {
+    color: #79819C;
+    font-size: 13px;
+}
+.hover span {
+    display: flex;
+    flex-direction: column;
+}
+
+.left__positioning {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    gap: 5px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.right__positioning {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+    /* margin-left: 200px; */
+    position: absolute;
+    right: 20px;  
+    top: 20px;
+}
+.right__positioning span {
+    display: flex;
+    background-color: white;
+    border-radius: 40px;
+    padding: 8px;
+    color: #2a2c19;
+    font-size: 16px;
+    border: 1px solid rgb(247, 247, 247);
+}
+.right__positioning span:hover {
+    background-color: #a1b903;
+    color: white;
+}
+.left__positioning span {
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: white;
+    font-weight: 600;
+    background-color: #12B7CE;
+}
+.left__positioning small {
+    padding: 3px 10px;
+    border-radius: 3px;
+    background-color: #FACFD4;
+    font-size: 13px;
+    color: #EA0D42;
+    font-weight: 600;
+}
+.No__left {
+    display: block;
+    padding: 7px 0;
+}
+.No__left {
+    font-size: 14px;
+    color: #2D2A6E;
+    font-weight: 400;
+}
+ .range {
+    width: 100%;
+    height: 10px;
+    appearance: none;
+    background-color: #E9ECEF;
+    border-radius: 30px;
+    outline: none;
+    overflow: hidden;
+    display: block;
+}
+.range::-webkit-slider-thumb {
+    appearance: none;
+    color: #96AE00;
+    outline: none;
+    width: 220px;
+    height: 10px;
+    background-color: #96AE00;
+    border-radius: 20px 0 0 20px;
+    border: 2px solid #96AE00;
+}
+.showhover {
+    display: block;
+}
+.nullhover {
+    display: none;
+}
+.hover__btn {
+    /* display: none; */
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.hover button {
+    display: inline-block;
+    width: max-content;
+    align-items: center;
+    background: none;
+    outline: none;
+    border: none;
+    background-color: #8ba003;
+    color: white;
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 50px;
+    border-radius: 30px;
+    margin: 5px 0;
+}
+.products__hover__more__dec {
+    padding: 5px 0;
+}
+.products__hover__more__dec small{
+    font-size: 14px;
+}
+
+
+
+@media only screen and (max-width: 992px) {
+    .card__section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      
+    }
+    .card {
+        width: 365px;
+    }
+    .right__positioning   {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+        position: absolute;
+        left: 270px;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .card__section {
+        display: grid;
+        grid-template-columns: 1fr;
+      
+    }
+    .card {
+        width: 100%;
+    }
+    .right__positioning   {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+        position: absolute;
+        left: 270px;
+    }
+}
+

@@ -1,0 +1,129 @@
+.Signup {
+    padding: 40px 90px;
+    background-color: white;
+}
+.Signup span{
+    color: gray;
+    font-size: 14px;
+}
+.Signup span small{
+    color: black;
+    font-size: 14px;
+}
+
+.signup__area {
+    background-color: rgb(238, 238, 238);
+    padding: 60px;
+    margin: 20px 0;
+    border-radius: 12px;
+}
+.signup__head {
+    display: flex;
+    align-items: start;
+    gap: 30px;
+}
+.sigin__icon{
+    padding: 25px;
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    font-size: 20px;
+}
+.signup__head small {
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.signup__head h3 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #2D2A6E;
+}
+.signup__head span {
+    color: #6b7188;
+}
+form {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+}
+.form__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 15px;
+    margin-bottom: 20px;
+}
+.each__field{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: white;
+    padding: 18px;
+    border-radius: 10px;
+}
+.fild___icon__head {
+    font-size: 25px;
+}
+.fild___icon {
+    font-size: 20px;
+    margin-left: 20px;
+    color: gray;
+}
+.each__field input {
+    width: 100%;
+}
+.each__field input::placeholder {
+   font-weight: 500;
+   font-size: 16px;
+   color: rgb(110, 110, 110);
+}
+form small a {
+    font-size: 16px;
+    color: #4D5574;
+}
+form small:hover {
+    text-decoration: underline;
+    color: #2D2A6E;
+}
+form button  {
+    padding: 15px;
+    border: none;
+    background-color: #2D2A6E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 12px 0;
+    font-size: 14px;
+    border-radius: 8px;
+    font-size: 18px;
+    color: white;
+    font-family: var(--font-family);
+    font-weight: 600;
+}
+form  .btn {
+    background-color: #96AE00;
+}
+form  .btn:hover {
+    background-color: #2D2A6E;
+}
+form button:hover {
+    background-color: #96AE00;
+}
+.btn__icon {
+    font-size: 35px;
+    margin-left: 20px;
+}
+
+
+.login__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.login__bottom span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}

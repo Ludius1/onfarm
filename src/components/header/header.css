@@ -1,0 +1,112 @@
+.header {
+    background-color: #2C296C;
+    width: 100%;
+    font-size: 14px;
+    letter-spacing: .1px;
+} 
+.main__header {
+    display: flex;
+    padding: 15px 90px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+.right__header, .right__header__right, .right__header__left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.rightHeaderrigghtEnglish, .rightHeaderrigghtusd {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    position: relative;
+}
+.click__english__dropdrown {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    color: #2C296C;
+    background-color: #ffffff;
+    padding: 20px 25px;
+    width: max-content;
+    display: none;
+    font-size: 15px;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0px 8px 5px rgba(61,110,168, 0.1);
+    border-radius: 0 0 5px 5px;
+    z-index: 99;
+}
+ .click__usd__dropdrown {
+    position: absolute;
+    top: 36px;
+    z-index: 99;
+    left: 0;
+    color: #2C296C;
+    background-color: #ffffff;
+    padding: 20px 25px;
+    display: flex;
+    font-size: 15px;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0px 8px 5px rgba(61,110,168, 0.1);
+    border-radius: 0 0 5px 5px;
+}
+.english__dropdown, .usd__dropdown {
+    cursor: pointer;
+}
+.english__dropdown:hover, .usd__dropdown:hover {
+    color: #96AE00;
+}
+.rightHeaderrigghtEnglish small, .rightHeaderrigghtusd small {
+    color: #dbd7d7;
+}
+.rightHeaderleft span, .rightHeaderrigghtEnglish span, .rightHeaderrigghtusd span {
+    display: flex;
+    flex-direction: row;
+    padding-inline: 15px;
+}
+.border {
+    width: 1px;
+    height: 15px;
+    background-color: #838383;
+}
+.insideRightheader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.showEnglishDropDown {
+    display: flex;
+}
+.closeEnglishDropDown {
+    display: none;
+}
+.rightHeaderrigghtusd {
+    z-index: 9999;
+}
+
+
+/* Tablet view */
+
+
+@media only screen and (max-width: 992px) {
+    .main__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+  }
+
+
+
+  @media only screen and (max-width: 600px) {
+    .header {
+        display: none;
+    }
+  }

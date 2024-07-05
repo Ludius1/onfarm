@@ -1,0 +1,39 @@
+:root {
+  --font-family:  "Jost", sans-serif;
+  --pri-font-family: "Quicksand", sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0; 
+    line-height: 1.5;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    /* letter-spacing: .1px; */
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #95AE3C;
+}
+
+body {
+    font-family:  "Jost", sans-serif;
+    background-color: #F3F2F7;
+    transition: all .9s ease-in-out;
+}
+a, .btn, button, p, i, input, select, textarea, li, img, svg path, *::after, *::before, .transition-3, h1, h2, h3, h4, h5, h6 {
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+
+}

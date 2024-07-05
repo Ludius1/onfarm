@@ -1,0 +1,112 @@
+.otherhome {
+    margin-top: 100px;
+    background-color: white;
+    padding: 50px 0;
+}
+.testimobial__sect {
+    padding: 20px;
+    position: relative;
+}
+.testimoniall__section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+.go__slide {
+    display: flex;
+    padding: 18px;
+    color: white;
+    background-color: #D9E1AC;
+    border-radius: 50px;
+    z-index: 2;
+}
+.go__slide:hover {
+    background-color: #96AE00;
+}
+.testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    width: 550px;
+    margin: 0 45px;
+}
+.testimonials img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+}
+.testimonpnial{
+    font-size: 18px;
+    color: #4D5574;
+    font-weight: 400;
+    line-height: 28px;
+}
+.testimonial__details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+.testimonial__work {
+    color: #4D5574;
+    font-size: 16px;
+    font-weight: 400;
+}
+.testumonial__name {
+    font-family: var(--pri-font-family);
+    font-size: 13px;
+    font-weight: 700;
+    color: #2D2A6E;
+}
+.testimonial__leaf__right {
+    position: absolute;
+    top: 0;
+    left: 350px;
+    width: 250px;
+}
+.testimonial__leaf__left {
+    position: absolute;
+    top: -90px;
+    right: 450px;
+    width: 200px;
+}
+.testimonial__leaf__down {
+    position: absolute;
+    bottom: -180px;
+    left: 560px;
+    width: 250px;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .otherhome {
+        margin-top: 200px;
+    }
+    .testimonials {
+        width: 100%;
+    }
+    .go__slide {
+        display: none;
+    }
+    .testimonial__leaf__right {
+        position: absolute;
+        top: 0;
+        left: 250px;
+        width: 250px;
+    }
+    .testimonial__leaf__left {
+        position: absolute;
+        top: -60px;
+        right: 400px;
+        width: 200px;
+    }
+    .testimonial__leaf__down {
+        display: none;
+    }
+}

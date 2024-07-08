@@ -4,10 +4,15 @@
 .Signup span small{
     color: #2D2A6E;
 }
+.left__shopdetails {
+
+}
 .shop__details__cont {
-    display: grid;
+    /* display: grid;
     gap: 40px;
-    grid-template-columns: 1fr 20%;
+    grid-template-columns: 1fr 20%; */
+    display: flex;
+    gap: 40px;
 }
 .product__dec__details {
     display: flex;

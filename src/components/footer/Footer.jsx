@@ -76,25 +76,25 @@ const Footer = () => {
                 </div>
 
                 <div className="newsletter">
-                <h3>OUR NEWSLETTER</h3>
-                <h4>Subscribe to the Orfarm mailing list to receive updates
-on new arrivals & other information.</h4>
+                    <h3>OUR NEWSLETTER</h3>
+                    <h4>Subscribe to the Orfarm mailing list to receive updates
+                        on new arrivals & other information.</h4>
 
-                <span>
-                    <div className="input__sec">
-                        <small>
-                            <span className='mail__icon'> <RiMailCheckLine /></span>
-                            <input type="text" placeholder='Your email address...' />
-                        </small>
-                        <button className='sub__btn'>SUBSCRIBE</button>
-                    </div>
+                    <span>
+                        <div className="input__sec">
+                            <small>
+                                <span className='mail__icon'> <RiMailCheckLine /></span>
+                                <input type="text" placeholder='Your email address...' />
+                            </small>
+                            <button className='sub__btn'>SUBSCRIBE</button>
+                        </div>
 
-                    <div className='check__sec'>
-                        <input type="checkbox" name="" id="" />
-                        <small>I accept terms & conditions & privacy policy.</small>
-                    </div>
-                </span>
-            </div>
+                        <div className='check__sec'>
+                            <input type="checkbox" name="" id="" />
+                            <small>I accept terms & conditions & privacy policy.</small>
+                        </div>
+                    </span>
+                  </div>
 
           </div>
             

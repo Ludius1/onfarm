@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 .footer__head__sfeatures img {
     width: 100%;
@@ -47,33 +48,34 @@
 
 
 
-.footer {
-    display: grid;
-    grid-template-columns: 67% 1fr;
-    margin-bottom: 90px;
-}
-.left__footer {
+/* .footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+} */
+.left__footer {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; */
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    gap: 25px;
+    gap: 50px;
     width: 100%;
 }
 .footer h3 {
     color: white;
     font-weight: 500;
     margin-bottom: 30px;
-    font-size: 16px;
+    font-size: 15px;
 }
 .footer h4 {
     color: #B0AFCC;
     font-weight: 500;
     margin-bottom: 30px;
-    font-size: 16px;
+    font-size: 15px;
 }
 .first__footer small {
     color: rgb(167, 167, 167);
-   font-size: 17px;
+   font-size: 15px;
 }
 .first__footer {
     width: 350px;
@@ -92,7 +94,7 @@
     gap: 10px;
 }
 .third__footer span small {
-    font-size: 18px;
+    font-size: 15px;
 }
 .sub__footer small{
     display: flex;
@@ -107,7 +109,7 @@
 }
 .sub__footer span {
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
     gap: 5px;
 }
@@ -145,14 +147,13 @@ input {
     background: none;
     outline: none;
     border: none;
-    font-size: 15px;
+    font-size: 14px;
     font-family: var(--font-family);
     font-weight: 500;
     color: white;
     background-color: #96AE00;
     padding: 13px 30px;
     border-radius: 5px;
-    width: 100%;
 }
 .mail__icon {
     font-size: 18px;
@@ -160,7 +161,7 @@ input {
     color: #B0AFCC;
 }
 input::placeholder {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: #B0AFCC;
     letter-spacing: -.4px;
@@ -176,7 +177,7 @@ input::placeholder {
     height: 15px;
 }
 .check__sec small {
-    font-size: 16px;
+    font-size: 14px;
     color: white;
 }
 
@@ -189,7 +190,7 @@ input::placeholder {
     padding: 30px 0;
 }
 .copyright span {
-    font-size: 19px;
+    font-size: 16px;
     color: rgb(219, 219, 219);
 }
 .copyright span small {

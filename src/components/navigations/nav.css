@@ -64,10 +64,12 @@
     color: #11102b;
 }
 .inside__seaech__sec small{
-    font-size:35px;
+    font-size:30px;
     position: absolute;
     top: -40px;
-    left: 115%
+    color: #0e0c27;
+    left: 115%;
+    cursor: pointer;
 }
 .search__input__section h4 {
     font-size: 22px;
@@ -105,7 +107,7 @@
     padding-left: 5px;
 }
 .nav__icon__sec {
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     flex-direction: row;
     gap: 10px;

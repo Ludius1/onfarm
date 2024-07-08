@@ -3,7 +3,7 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import ProductCard from '../card/ProductCard'
 import { useState, useEffect } from 'react';
 import Card from '../card/Card'
-import { cardData } from './ShoppData'
+import { CardData } from '../card/cardData';
 import '../../components/shop/shop.css'
 import { FaChevronDown } from "react-icons/fa";
 import Category1 from '../../assets/category-1.jpg'
@@ -16,8 +16,10 @@ import Category7 from '../../assets/category-7.png'
 import Category8 from '../../assets/category-8.png'
 import Category9 from '../../assets/category-9.png'
 import CartSample from '../CartSample';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
+    const [products, setProducts] = useState(CardData)
      const shopCategory = [
         {id: 1, src: Category1 , name: 'Vegetables'},
         {id: 2, src: Category2 , name: 'Fresh Fruits'},
@@ -42,13 +44,18 @@ const Shop = () => {
     <div className="shop">
             <span>Home /<small>Shop</small></span>
             <div className="shop__categories">
-                {shopCategory.map((shopCategory) => (
+                {/* {shopCategory.map((shopCategory) => (
                     <span key={shopCategory.id}>
                         <img src={shopCategory.src} alt="" />
                         <small>{shopCategory.name}</small>
                     </span>
-                ))}
-                
+                ))}   */}
+
+                    <span> <Link to='/products/categories/Vegetables'>              
+                            <img src={Category1} alt="" />
+                            <small>Vegetables</small>
+                        </Link>
+                    </span>
             </div>
 
             <div className="showing__products">
@@ -117,12 +124,21 @@ const Shop = () => {
                 </div>
             </div>
 
-            <span className={`shop__card__style__one  ${currentGrid}`} >
-            {cardData.map((cardData) =>(
-                <ProductCard   padding=' 20px' backgroundColor = '#f7f7f9' borderRadius = '7px'  cardData={cardData}/>  
-            ))}
             
-            </span>
+
+            {products.length > 0 ? 
+                        <span className={`shop__card__style__one  ${currentGrid}`} >
+                        {/* {CardData.map((CardData) =>(
+                            <ProductCard   padding=' 20px' backgroundColor = '#f7f7f9' borderRadius = '7px'  CardData={CardData} /> 
+                            
+                        ))} */}
+        
+                        {products.map(({id, src, product__category, old__price, product__name, shop, NumberLeft, price, badge, type, mfg, desc, life__span}) =>(
+                                <ProductCard key={id} src={src} product__name={product__name} shop={shop} NumberLeft={NumberLeft} ProductId={id} price={price} old__price={old__price} product__category={product__category} desc={desc} badge={badge} type={type} mfg={mfg} life__span={life__span}/>  
+                            ))}
+                    </span>
+            : <span>No Products found</span> }
+        
             
              <span className='shop__slider'>
                 <small>1</small>

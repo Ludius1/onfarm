@@ -3,7 +3,7 @@ import '../cart/cart.css'
 import { useState } from 'react';
 import Chicken from '../../assets/products30-min.jpg'
 import Banana from '../../assets/baanana.jpg'
-import CancelIcon from '../../assets/cancel-icon.svg'
+import { TiTimes } from "react-icons/ti";
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
@@ -83,7 +83,7 @@ const Cart = () => {
                             <td>${(product.price * product.quantity).toFixed(2)}</td>
                             <td>
                               <button className='removeProduct' onClick={() => removeProduct(product.id)}>
-                                <img src={CancelIcon} alt="" />
+                                <TiTimes className='removeicon'/>
                               </button>
                             </td>
                           </tr>

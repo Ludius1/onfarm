@@ -1,8 +1,8 @@
 .feauturedBrands__cont {
     display: grid;
     grid-template-columns: 24% 1fr;
-    gap: 15px;
     width: 100%;
+    gap: 15px;
     padding: 0px 80px;
 }
 .featuredBrands {
@@ -27,19 +27,19 @@
 .featured__brand  small {
     font-family: var(--pri-font-family);
     font-size: 15px;
-    line-height: 23px;
+    line-height: 23px;  
     font-weight: 500;
     color: #79819C;
 }
 .feauturedBrands__cont .featured__products__cont {
     
 }
-.featured__products__cont .featured__productt {
+ .featured__productt {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 15px;
     justify-content: space-between;
-    width: 500px;
+    
 }
 
 
@@ -54,7 +54,6 @@
     display: flex;
     flex-direction: flex;
     position: relative;
-    width: 350px;
     align-items: center;
 }
 .product__featured__image {

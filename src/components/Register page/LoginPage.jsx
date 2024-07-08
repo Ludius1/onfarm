@@ -6,6 +6,7 @@ import { FaRegUser } from "react-icons/fa6";
 import { FiUserPlus } from "react-icons/fi";
 import { FiUser } from "react-icons/fi";
 import { LuUser2 } from "react-icons/lu";
+import { useState } from 'react';
 import { AiOutlineMail } from "react-icons/ai";
 import { LuKeyRound } from "react-icons/lu";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
@@ -14,6 +15,17 @@ import { CiLogin } from "react-icons/ci";
 import Cart from '../cart/Cart';
 
 const LoginPage = () => {
+    const [userData, setUserData] = useState({
+        userName: '',
+        // email: '',
+        password: '',
+       })
+    
+       const handlechange = (e) => {
+        setUserData(prevState => {
+            return{...prevState, [e.target.name]: e.target.value}
+        })
+    }
 
   return (
     <div className="Signup">
@@ -34,12 +46,12 @@ const LoginPage = () => {
 
                    <span className='each__field'>
                        <small><FiUser className='fild___icon'/></small>
-                       <input type="text" placeholder='Username / email address' />
+                       <input type="text" name='userName' value={userData.userName} onChange={handlechange} placeholder='Username / email address' autoFocus />
                    </span>
 
                    <span  className='each__field'>
                        <small><LuKeyRound className='fild___icon'/></small>
-                       <input type="password" placeholder='Password' />
+                       <input type="password" name='password' value={userData.password} onChange={handlechange} placeholder='Password' />
                    </span>
                </div>
                <div className="login__bottom">

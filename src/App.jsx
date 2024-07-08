@@ -11,6 +11,12 @@ import Signup from './components/signup/Signup'
 import ShopDetails from './components/shopDetails/ShopDetails'
 import Cart from './components/cart/Cart'
 import Checkout from './components/checkout/Checkout'
+import Blog from './components/blog/Blog'
+import ErrorPage from './components/errorPage/ErrorPage'
+import {Toaster} from 'sonner'
+import FeatureddBrand from './components/admin/FeatureddBrand'
+import UserProfile from './components/userprofile/UserProfile'
+import CreatePost from './components/admin/createPosts/CreatePost'
 
 
 function App() {
@@ -19,14 +25,21 @@ function App() {
     <>
      <Header/>
      <Nav/>
+     <Toaster/>
      <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/shop' element={<Shop/>}/>
+        {/* <Route path='/shop/categories/:category' element={<kk/>}/> */}
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/shopdetails' element={<ShopDetails/>}/>
+        <Route path='/shopdetails/:id' element={<ShopDetails/>}/>
         <Route path='/wishlist' element={<Cart/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
+        <Route path='/blog' element={<Blog/>}/>
+        <Route path='/userprofile' element={<UserProfile/>}/>
+        <Route path='/featuredbrands' element={<FeatureddBrand/>}/>
+        <Route path='/error/404' element={<ErrorPage/>}/>
+        <Route path='/create-posts' element={<CreatePost/>}/>
      </Routes>
      <Footer/>
     </>

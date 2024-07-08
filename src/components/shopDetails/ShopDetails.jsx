@@ -82,7 +82,7 @@ function ShopDetails() {
                                 </div>
 
                                 <div className="product__dec__detai">
-                                    <small className="product__dec_price">$56.00</small>
+                                    <small className="product__dec_price">56.00</small>
                                     <span className="dec__produc">
                                         <ul>
                                             <li>Delicious non - dairy cheese sauce</li>

@@ -1,0 +1,59 @@
+.errorPage {
+    padding: 70px;
+}.eror__cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.shaoee {
+    margin-top: -15px;
+}
+.eror__cont h1 {
+    font-size: 50px;
+    font-family: var(--pri-font-family);
+    color: #2c296b;
+    font-weight: 800;
+}
+.eror__cont small {
+    font-size: 50px;
+    font-family: var(--pri-font-family);
+    color: #2c296b;
+    font-weight: 800;
+}
+.eror__cont button {
+    background-color: #96AE00;
+    padding: 13px 40px;
+    margin: 20px 0 0px 0px;
+    font-size: 14px;
+    width: 300px;
+    font-weight: 600;
+    border-radius: 40px;
+    border: none;
+    font-family: var(---font-family);
+    color: white;
+    cursor: pointer;
+}
+.eror__cont .Linkkk{
+    background-color: #96AE00;
+    padding: 14px 40px;
+    margin: 20px 0 0px 0px;
+    font-size: 12px;
+    display: block;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 40px;
+    border: none;
+    font-family: var(---font-family);
+    color: white;
+    cursor: pointer;
+}
+.eror__cont .Linkkk:hover {
+    background-color: #2D2A6E;
+}
+.eror__cont small {
+    font-size: 15px;
+    font-family: var(--pri-font-family);
+    color: #15132e;
+    font-weight: 500;
+}

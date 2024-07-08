@@ -4,6 +4,7 @@
     background-image: url(../../assets/footer-bg-1.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100%;
 }
 .footer__section {
     padding: 40px 0px;
@@ -56,6 +57,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: space-between;
     gap: 25px;
+    width: 100%;
 }
 .footer h3 {
     color: white;
@@ -110,8 +112,8 @@
     gap: 5px;
 }
 .newsletter {
-    border-left: 1px solid #484492;
-    padding-left: 150px;
+    /* border-left: 1px solid #484492; */
+    /* padding-left: 150px; */
 }
 
 

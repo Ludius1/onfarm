@@ -14,6 +14,7 @@ import { CiSearch } from "react-icons/ci";
 import { RiMenu4Fill } from "react-icons/ri";
 import Cart from './../../assets/cart.jpg'
 import CancelIcon from '../../assets/cancel-icon.svg'
+import { LiaTimesSolid } from "react-icons/lia";
 
 const Nav = () => {
       // const [isMouseOver, setIsMouseOver] = useState(false)
@@ -27,7 +28,7 @@ const Nav = () => {
   return (
     <>
       <div className="nav__sec">
-            <div id='nav'  >
+            <div id='nav' >
               <span className='navv__menu'><RiMenu4Fill /></span>
               <div className="logo__sec">
                   <img src={Logo} alt="" className="logo" />
@@ -37,8 +38,8 @@ const Nav = () => {
 
                 <Link to='/'> Home</Link>
                 <Link to='/shop' className='Shop__'> Shop</Link>
-                <Link to='/' className='Blog__' onMouseEnter={() => setBlogIsMouseOver(true)}> Blog<small>{<FaChevronDown />}</small></Link>
-                <Link to='/'> Pages<small>{<FaChevronDown />}</small></Link>
+                <Link to='/blog' className='Blog__' > Blog</Link>
+                <Link to='/'> Pages</Link>
                 <Link to='/'> About Us</Link>
                 <Link to='/'> Contact Us</Link>
                             
@@ -57,7 +58,9 @@ const Nav = () => {
           <div className={`bac__search ${issearchOpen ? 'showHover' : 'nullHover'}` }>
                  <div className=" search__sec">
                  <span className="inside__seaech__sec">
-                      <small><MdOutlineCancel onClick={() => setsearchOpen(!issearchOpen)}/></small>
+                      <small onClick={() => setsearchOpen(!issearchOpen)}>
+                      <LiaTimesSolid />
+                      </small>
                       <div className="search__input__section">
                           <h4>WHAT ARE YOU LOOKING FOR?</h4>
                           <span className='search__input__span'>
@@ -76,7 +79,7 @@ const Nav = () => {
             </div> */}
 
           <div className={`Blog__hover ${BlogisMouseOver ? 'showHover' : 'nullHover'}`} onMouseLeave={() => setBlogIsMouseOver(false)} >
-                  <div className="inside__blog__hover">
+                  {/* <div className="inside__blog__hover">
                   <div className='shop__hover__cart'>
                     <small>
                     <span> with banner</span>
@@ -85,7 +88,7 @@ const Nav = () => {
                     <span>Shop with banner</span>
                     </small>
                   </div>
-                  </div>
+                  </div> */}
                   
 {/* 
                   <img src={HeroSlide2} alt="" /> */}

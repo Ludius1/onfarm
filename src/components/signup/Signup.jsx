@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './../signup/signup.css'
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { CiLock } from "react-icons/ci";
@@ -7,13 +7,28 @@ import { FiUserPlus } from "react-icons/fi";
 import { FiUser } from "react-icons/fi";
 import { LuUser2 } from "react-icons/lu";
 import { AiOutlineMail } from "react-icons/ai";
+import {toast} from 'sonner'
 import { LuKeyRound } from "react-icons/lu";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
 import { Link } from 'react-router-dom'
 import Cart from '../cart/Cart';
 
+
 const Signup = () => {
-    window.scrollTo(0,0)
+   const [userData, setUserData] = useState({
+    firstName: '',
+    lastName: '',
+    userName: '',
+    email: '',
+    password: '',
+    password2: ''
+   })
+
+   const handlechange = (e) => {
+    setUserData(prevState => {
+        return{...prevState, [e.target.name]: e.target.value}
+    })
+   }
   return (
     <div className="Signup">
              <span>Home /<small>Signup</small></span>
@@ -33,36 +48,31 @@ const Signup = () => {
         
                             <span className='each__field'>
                                 <small><FiUser className='fild___icon'/></small>
-                                <input type="text" placeholder='First Name' />
+                                <input type="text" name='firstName' value={userData.firstName} placeholder='First Name' onChange={handlechange} />
                             </span>
 
                             <span className='each__field'>
                                 <small><FiUserPlus className='fild___icon'/></small>
-                                <input type="text" placeholder='Last Name' />
+                                <input type="text" name='lastName' value={userData.lastName} placeholder='Last Name'  onChange={handlechange} />
                             </span>
                             
                             <span className='each__field'>
                                 <small><LuUser2 className='fild___icon'/></small>
-                                <input type="text" placeholder='Username' />
+                                <input type="text" name='userName' value={userData.userName} placeholder='Username'  onChange={handlechange} />
                             </span>
-
-                            {/* <span  className='each__field'>
-                                <small><MdKeyboardDoubleArrowRight className='fild___icon'/></small>
-                                <input type="number" placeholder='Phone Number' />
-                            </span> */}
 
                             <span  className='each__field'>
                                 <small><AiOutlineMail className='fild___icon'/></small>
-                                <input type="email" placeholder='Email address' />
+                                <input type="email" name='email' value={userData.email} placeholder='Email address'  onChange={handlechange} />
                             </span>
                             <span  className='each__field'>
                                 <small><LuKeyRound className='fild___icon'/></small>
-                                <input type="password" placeholder='Password' />
+                                <input type="password" name='password' value={userData.password} placeholder='Password'  onChange={handlechange} />
                             </span>
 
                             <span  className='each__field'>
                                 <small><LuKeyRound className='fild___icon'/></small>
-                                <input type="password" placeholder='Confirm Password' />
+                                <input type="password" name='password' value={userData.password} placeholder='Confirm Password'  onChange={handlechange} />
                             </span>
                         </div>
                         <small><Link to='/Login'> Already Have Account?</Link></small>

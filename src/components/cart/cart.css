@@ -57,6 +57,9 @@ button {
     border: none;
     cursor: pointer;
 }
+.removeicon {
+    font-size: 2https://www.pexels.com/video/ingredients-for-tea-5742198/5px;
+}
 .removeProduct img {
     width: 20px;
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import './productCartHead.css'
 import { LuChevronRight } from "react-icons/lu";
+import { Link } from 'react-router-dom';
 
 const ProductCartHead = ({heading, heading2, heading3}) => {
   return (
@@ -13,10 +14,12 @@ const ProductCartHead = ({heading, heading2, heading3}) => {
               
             </span>
             
-            <small>
+           <Link to="/shop">
+           <small>
                 <h5>View All</h5>
                 <span><LuChevronRight /></span>
             </small>
+           </Link>
         </div>
     </div>
   )

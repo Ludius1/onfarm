@@ -11,10 +11,7 @@ export const rightHeaderleft = [
     path: '/'
  },
   {id:2, nav: "Order Tracking",
-    path: '/'
- },
-  {id:3, nav: "FAQs",
-    path: '/'
+    path: '/error/404'
  }
 ]
 

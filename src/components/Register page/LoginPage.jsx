@@ -12,20 +12,49 @@ import { LuKeyRound } from "react-icons/lu";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
 import { Link } from 'react-router-dom'
 import { CiLogin } from "react-icons/ci";
+import { useNavigate } from 'react-router-dom';
 import Cart from '../cart/Cart';
+import {toast} from 'sonner'
+import axios from 'axios'
+
 
 const LoginPage = () => {
+    window.scrollTo(0,0)
     const [userData, setUserData] = useState({
-        userName: '',
-        // email: '',
+        // userName: '',
+        email: '',
         password: '',
        })
+       const [isLoading, setIsLoading] = useState(false);
+       const navigateTo = useNavigate();
     
        const handlechange = (e) => {
         setUserData(prevState => {
             return{...prevState, [e.target.name]: e.target.value}
         })
     }
+    const handleSubmit = async (e) => {
+        event.preventDefault()
+        console.log(userData)
+        setIsLoading(true)
+        try {
+           const response = await axios.post('http://localhost:5000/api/v1/user/login', userData)
+            
+           if (response.status === 200) {
+            console.log(response)
+            toast.success(response.data?.msg);
+            setIsLoading(false)
+            const token = response.data?.token;
+            console.log(token)
+            localStorage.setItem('token', token);
+            navigateTo('/'); 
+          }
+        } catch (error) {
+          console.error(error);
+          setIsLoading(false);
+          toast.success(error.response.data.msg || 'Login failed')
+        }
+      };
 
   return (
     <div className="Signup">
@@ -41,12 +70,12 @@ const LoginPage = () => {
                </small>
            </span>
 
-           <form>
+           <form onSubmit={handleSubmit}>
                <div className="form__head">
 
                    <span className='each__field'>
                        <small><FiUser className='fild___icon'/></small>
-                       <input type="text" name='userName' value={userData.userName} onChange={handlechange} placeholder='Username / email address' autoFocus />
+                       <input type="text" name='email' value={userData.email} onChange={handlechange} placeholder='Username / email address' autoFocus />
                    </span>
 
                    <span  className='each__field'>
@@ -61,10 +90,9 @@ const LoginPage = () => {
                         </span>
                          <small><Link to='/Login'> Forget Password</Link></small>
                </div>
-               <button className='btn'>Login Now <MdOutlineArrowRightAlt className='btn__icon'/></button>
+               <button className='btn'>{isLoading ? 'Logging in...' : 'Login Now'} <MdOutlineArrowRightAlt className='btn__icon'/></button>
            </form>
        </div>
-       <Cart/>
     </div>
 </div>
   )

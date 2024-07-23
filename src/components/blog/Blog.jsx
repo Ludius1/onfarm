@@ -4,6 +4,7 @@ import './blog.css'
 import { Link } from 'react-router-dom'
 
 const Blog = () => {
+    window.scrollTo(0,0)
   return (
    <div className="blog__section Signup">
         {

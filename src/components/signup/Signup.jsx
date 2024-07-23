@@ -7,7 +7,9 @@ import { FiUserPlus } from "react-icons/fi";
 import { FiUser } from "react-icons/fi";
 import { LuUser2 } from "react-icons/lu";
 import { AiOutlineMail } from "react-icons/ai";
+import { useNavigate } from 'react-router-dom'
 import {toast} from 'sonner'
+import axios from 'axios'
 import { LuKeyRound } from "react-icons/lu";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
 import { Link } from 'react-router-dom'
@@ -15,20 +17,46 @@ import Cart from '../cart/Cart';
 
 
 const Signup = () => {
+    window.scrollTo(0,0)
    const [userData, setUserData] = useState({
     firstName: '',
     lastName: '',
     userName: '',
     email: '',
     password: '',
-    password2: ''
+    confirmPassword: ''
    })
+   const[isLoading, setIsLoading] = useState(false)
+   const navigateTo = useNavigate()
 
    const handlechange = (e) => {
     setUserData(prevState => {
         return{...prevState, [e.target.name]: e.target.value}
     })
    }
+   const handleSubmit = async (e) => {
+    event.preventDefault()
+    console.log(userData)
+    setIsLoading(true)
+    try {
+       const response = await axios.post('http://localhost:5000/api/v1/user/signup', userData)
+        
+       if (response.status === 200) {
+        console.log(response)
+        toast.success(response.data.msg)
+        setIsLoading(false)
+        navigateTo('/login') 
+      }
+    } catch (error) {
+        if (error.response && error.response.data && error.response.data.msg) {
+            toast.error(error.response.data.msg);
+        } else {
+            toast.error('An unexpected error occurred.');
+        }
+    } finally {
+        setIsLoading(false);
+    }
+  };
   return (
     <div className="Signup">
              <span>Home /<small>Signup</small></span>
@@ -43,7 +71,7 @@ const Signup = () => {
                         </small>
                     </span>
 
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="form__head">
         
                             <span className='each__field'>
@@ -72,11 +100,11 @@ const Signup = () => {
 
                             <span  className='each__field'>
                                 <small><LuKeyRound className='fild___icon'/></small>
-                                <input type="password" name='password' value={userData.password} placeholder='Confirm Password'  onChange={handlechange} />
+                                <input type="password" name='confirmPassword' value={userData.confirmPassword} placeholder='Confirm Password'  onChange={handlechange} />
                             </span>
                         </div>
                         <small><Link to='/Login'> Already Have Account?</Link></small>
-                        <button>Register Now <MdOutlineArrowRightAlt className='btn__icon'/></button>
+                        <button>{isLoading? 'Registering...' : 'Register Now'} <MdOutlineArrowRightAlt className='btn__icon'/></button>
                     </form>
                 </div>
               

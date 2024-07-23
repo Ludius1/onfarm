@@ -37,7 +37,7 @@ const FeaturedBrands = () => {
                             ))}
                 </div>
 
-                <div className="featured__productt">
+                <div className="featured__productt" key={CardBrandFeature.brandproductId}>
                         {featuredProducts.map(({brandId,brand__name, src, brand__desc, brandSrc, featured__product__name, featured__price, featured_update_price, featured_update_discount}) =>(
                         <Featuredproductcard key={brandId} src={src} brand__name={brand__name} brand__desc={brand__desc} brandSrc={brandSrc} featured__product__name={featured__product__name} featured_update_discount={featured_update_discount} featured__price={featured__price} featured_update_price={featured_update_price} />  
                             ))}

@@ -3,6 +3,7 @@ import '../header/header.css'
 import { FaChevronDown } from "react-icons/fa";
 import { headerNotification, rightHeaderleft, english, usd } from './headerData'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -11,10 +12,10 @@ const Header = () => {
 
   const usdRef = useRef(null)
   const engRef = useRef(null)
-  console.log(usdRef)
+  // console.log(usdRef)
   const OutsideClick = (refState, ref) => {
     if (ref.current && !ref.current.contains(event.target)) {
-      console.log("Outside click ")
+      // console.log("Outside click ")
       refState(false)
 
     }
@@ -40,11 +41,17 @@ const Header = () => {
 
         <div className="right__header">
           <div className="right__header__left">
-            {rightHeaderleft.map((rightHeaderleft) => (
+            {/* {rightHeaderleft.map((rightHeaderleft)  => (
               <div className="rightHeaderleft" key={rightHeaderleft.id}>
                 <span>{rightHeaderleft.nav}</span>
               </div>
-            ))}
+            ))} */}
+            <div className="rightHeaderleft">
+              <span>
+              <Link to="/error/404">Store Location</Link>
+              </span>
+            </div>
+             
           </div>
           <span className='border'></span>
           <div className="right__header__right">

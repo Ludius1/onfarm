@@ -17,14 +17,17 @@
     margin: 20px 0;
 }
 .shop__categories span{
-    padding: 25px;
+    padding: 30px 35px;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
+
 .shop__categories img{
     width: 90px;
 }
@@ -78,7 +81,8 @@
     padding: 20px;
     box-shadow:rgba(0, 0, 0, 0.04) 0px 13px 30px;
     right: -15px;
-    bottom: -160px;
+    width: max-content;
+    bottom: -150px;
     display: none;
     z-index: 99;
     transition: all 0.2s ease-out 0s;

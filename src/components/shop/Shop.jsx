@@ -2,6 +2,7 @@ import React from 'react'
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import ProductCard from '../card/ProductCard'
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Card from '../card/Card'
 import { CardData } from '../card/cardData';
 import '../../components/shop/shop.css'
@@ -13,58 +14,98 @@ import Category4 from '../../assets/category-4.jpg'
 import Category5 from '../../assets/category-5.jpg'
 import Category6 from '../../assets/category-6.png'
 import Category7 from '../../assets/category-7.png'
-import Category8 from '../../assets/category-8.png'
-import Category9 from '../../assets/category-9.png'
 import CartSample from '../CartSample';
 import { Link } from 'react-router-dom';
 
 const Shop = () => {
-    const [products, setProducts] = useState(CardData)
-     const shopCategory = [
+    window.scrollTo(0,0)
+    const [products, setProducts] = useState([])
+    
+     const productCategories = [
         {id: 1, src: Category1 , name: 'Vegetables'},
         {id: 2, src: Category2 , name: 'Fresh Fruits'},
         {id: 3, src: Category3 , name: 'Fresh Drink'},
         {id: 4, src: Category4 , name: 'Fresh Bakery'},
         {id: 5, src: Category5 , name: 'Biscuits Snacks'},
         {id: 6, src: Category6 , name: 'Fresh Meat'},
-        {id: 7, src: Category7 , name: 'Fresh Milk'},
-        {id: 8, src: Category8 , name: 'Fresh Milk'},
-        {id: 9, src: Category9 , name: 'Fresh Milk'}
+        {id: 7, src: Category7 , name: 'Fresh Milk'}
     ]
     const [currentGrid, setcurrentGrid] = useState('')
-    const [changeColor, setchangeColor] = useState(false)
-    const [changeSorting, setchangeSorting] = useState(false)
+    const [changeColor, setchangeColor] = useState('')
+    const [changeSorting, setChangeSorting] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('Default sorting');
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const [productsFoundCount, setProductsFoundCount] = useState(0);
+  
+    const handleOptionClick = (option) => {
+      setSelectedOption(option);
+      setChangeSorting(false);
+    };
 
 
     const handleClick = (className) => {
         setcurrentGrid(className)
+        
     }
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/v1/products/');
+                console.log(response)
+                setProducts(response.data);
+            } catch (error) {
+                console.error('Failed to fetch products:', error);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+    
+    const fetchProductsByCategory = async (category) => {
+        try {
+            if (category) {
+                const response = await axios.get(`http://localhost:5000/api/v1/products/categories/${category}`);
+                setProducts(response.data);
+              
+            } else {
+                const response = await axios.get('http://localhost:5000/api/v1/products/');
+                setProducts(response.data);
+           
+            }
+        } catch (error) {
+            console.error('Failed to fetch products:', error);
+            setDebugMessage('Failed to fetch products');
+        }
+    };
+    useEffect(() => {
+        if (selectedCategory) {
+            fetchProductsByCategory(selectedCategory);
+        }
+    }, [selectedCategory]);
     
   return (
     <div className="shop">
             <span>Home /<small>Shop</small></span>
             <div className="shop__categories">
-                {/* {shopCategory.map((shopCategory) => (
-                    <span key={shopCategory.id}>
-                        <img src={shopCategory.src} alt="" />
-                        <small>{shopCategory.name}</small>
+            {productCategories.map((category) => (
+                    <span key={category.id} onClick={() => setSelectedCategory(category.name)}>
+                        <img src={category.src} alt={category.name} />
+                        <small>{category.name}</small>
                     </span>
-                ))}   */}
-
-                    <span> <Link to='/products/categories/Vegetables'>              
-                            <img src={Category1} alt="" />
-                            <small>Vegetables</small>
-                        </Link>
-                    </span>
+                ))}
+                    
             </div>
 
             <div className="showing__products">
                 <div className="inside__showing__products">
+               
                 <span className="left__showing__">
-                    Showing
-                    <small>1 - 18 of 40 </small>
-                    <span>Products</span>
-                </span>
+                        <small>
+                            Showing 1 - {products.length} of {selectedCategory ? `${selectedCategory}` : 'all products'}
+                        </small>
+                        
+                    </span>
+                     
 
                 <span className="middle__showing__">
                     <small onClick={() => handleClick('shop__card__style__two')}><svg className='style__green' onClick={()=> setchangeColor(true)}  width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,34 +151,50 @@ const Shop = () => {
                                                 </svg></small>
                 </span>
 
-                <span className="right__showing__" onClick={()=> setchangeSorting(!changeSorting)}>
-                    Default sorting 
-                    <span ><FaChevronDown className='fav__down'/></span>
-                    <div className={`sorting__option  ${changeSorting ? 'display' : 'notdisplay'}`}>
-                    
-                    <option value="">Default sorting </option>
-                        <option value="">Short popularity</option>
-                        <option value="">Show 08 </option>
-                        <option value="">Show 20</option>
-                    </div>
-                </span>
+                <span className="right__showing__" onClick={() => setChangeSorting(!changeSorting)}>
+      {selectedOption}
+      <span><FaChevronDown className="fav__down" /></span>
+      <div className={`sorting__option ${changeSorting ? 'display' : 'notdisplay'}`}>
+        <div onClick={() => handleOptionClick('Default sorting')}>Default sorting</div>
+        <div onClick={() => handleOptionClick('Short popularity')}>Short popularity</div>
+        <div onClick={() => handleOptionClick('Show 08')}>Show 08</div>
+        <div onClick={() => handleOptionClick('Show 20')}>Show 20</div>
+      </div>
+    </span>
                 </div>
             </div>
 
-            
-
-            {products.length > 0 ? 
-                        <span className={`shop__card__style__one  ${currentGrid}`} >
-                        {/* {CardData.map((CardData) =>(
-                            <ProductCard   padding=' 20px' backgroundColor = '#f7f7f9' borderRadius = '7px'  CardData={CardData} /> 
-                            
-                        ))} */}
-        
-                        {products.map(({id, src, product__category, old__price, product__name, shop, NumberLeft, price, badge, type, mfg, desc, life__span}) =>(
-                                <ProductCard key={id} src={src} product__name={product__name} shop={shop} NumberLeft={NumberLeft} ProductId={id} price={price} old__price={old__price} product__category={product__category} desc={desc} badge={badge} type={type} mfg={mfg} life__span={life__span}/>  
-                            ))}
-                    </span>
-            : <span>No Products found</span> }
+            {products.length > 0 ? (
+        <span className={`shop__card__style__one  ${currentGrid}`} >
+            {products.map(product => {
+                const {
+                    _id,  prdDetailsId: {src= src[0]}, prdCategoryId: { product__category = '' } = {},  old__price = '', desc = '', product__name = '', shop = '', NumberLeft = '', price = '', badge = '', type = '', mfg = '', life__span = '', ratings = 0
+                } = product;
+                return (
+                    <ProductCard 
+                        key={_id} 
+                        id={_id}
+                        src={src}
+                        product__category={product__category}
+                       
+                        old__price={old__price}
+                        desc={desc}
+                        product__name={product__name}
+                        shop={shop}
+                        NumberLeft={NumberLeft}
+                        price={price}
+                        badge={badge}
+                        type={type}
+                        mfg={mfg}
+                        life__span={life__span}
+                        ratings={ratings}
+                    />
+                );
+            })}
+        </span>
+    ) : (
+        <span>No Products found</span>
+    )}
         
             
              <span className='shop__slider'>

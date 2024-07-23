@@ -7,7 +7,7 @@ import '../checkout/checkout.css'
 
 const Checkout = () => {
     const [openPFAQ, setOpenPFAQ] = useState(false)
-    const [changePlusMinus, setchangePlusMinus] = useState('')
+    const [changePlusMinus, setchangePlusMinus] = useState(false)
 
     const handlechangePlusMinus = (className) => {
         setchangePlusMinus(className)
@@ -159,8 +159,8 @@ const Checkout = () => {
                                 <div className="MethodTransfer">
                                         <span className="top__methodTransfer" onClick={()=> setOpenPFAQ(!openPFAQ)}>
                                              <small>Direct Bank Transfer </small>
-                                             <div className="reviept--icon">
-                                                <small className={`minus__recipt`}><GoPlus/></small>
+                                             <div className="reviept--icon" >
+                                                <small  className={`minus__recipt`}><GoPlus/></small>
                                                 <small className={`plus__recipt `}><FiMinus/></small>
                                              </div>
                                         </span>

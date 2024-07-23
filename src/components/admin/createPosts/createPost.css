@@ -1,0 +1,35 @@
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.input-row span {
+    flex: 1;
+    margin: 0 5px;
+}
+.form-container button {
+    font-size: 15px;
+}
+
+.input-row input::placeholder,  .ReactQuill::placeholder {
+   font-size: 13px;
+   font-weight: 400;
+   color: black;
+   font-family: var(--font-family);
+}
+.input-row input, select, .ql-container {
+    width: 100%;
+    border: 1px solid gray;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.textarea-row .first {
+    padding-top: 20px;
+}

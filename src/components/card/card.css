@@ -16,13 +16,24 @@
     position: relative;
     background-color: white;
 }
+.product_image_section {
+    cursor: pointer;
+
+}
 .product__image {
     width: 100%;
+    object-fit: cover;
     margin-bottom: 15px;
+    padding: 20px;
 }
 .product__details {
     padding: 15px 10px;
     width: 100%;
+}
+.product__details .product__category {
+    font-size: 14px;
+    color: #79819C;
+    font-weight: 400;
 }
 .card small {
     font-size: 14px;
@@ -30,12 +41,13 @@
 }
 .clse {
     display: block;
+    
 }
 .grading {
     color: #fcb80e;
     display: flex;
     gap: 3px;
-    padding: 12px 0;
+    padding-top: 10px;
     font-size: 14px;
 }
 .product__name {
@@ -45,17 +57,24 @@
     line-height: 18px;
 }
 .price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    letter-spacing: -.3px;
+}
+.price strong {
     color: #EA0D42;
-    font-size: 20px;
+    font-size: 18px;
     align-items: center;
     gap: 8px;
     display: flex;
     flex-direction: row;
     font-weight: 500;
 }
-.price small {
-    font-size: 16px;
+.price .old__price {
+    font-size: 15px;
     color: #4D5574;
+    font-weight: 400;
     text-decoration: line-through;
 }
 .left__positioning .desc {
@@ -82,12 +101,10 @@
 }
 .hover {
     z-index: 999999;
-    /* overflow: hidden; */
-    /* position: absolute; */
     display: flex;
     flex-direction: column;
-
-    background-color: white;
+    /* overflow: hidden;
+    position: absolute; */
 }
 .hover small {
     color: #79819C;
@@ -150,8 +167,6 @@
 .No__left {
     display: block;
     padding: 7px 0;
-}
-.No__left {
     font-size: 14px;
     color: #2D2A6E;
     font-weight: 400;
@@ -165,6 +180,7 @@
     outline: none;
     overflow: hidden;
     display: block;
+    margin: 10px 0;
 }
 .range::-webkit-slider-thumb {
     appearance: none;
@@ -178,12 +194,12 @@
 }
 .showhover {
     display: block;
+    
 }
 .nullhover {
     display: none;
 }
 .hover__btn {
-    /* display: none; */
     width: 100%;
     margin-top: 10px;
     display: flex;
@@ -210,7 +226,8 @@
     padding: 5px 0;
 }
 .products__hover__more__dec small{
-    font-size: 14px;
+    font-size: 6px;
+    font-weight: 400;
 }
 
 

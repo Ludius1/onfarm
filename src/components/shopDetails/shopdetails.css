@@ -41,6 +41,7 @@
     font-size: 13px;
     color: orange;
 }
+
 .sample__imgg {
     display: flex;
     flex-direction: row;
@@ -49,8 +50,13 @@
 }
 .sample__img__img {
     padding: 2px;
+    width: 70px;
+    cursor: pointer;
     border-radius: 8px;
     border: 1px solid rgb(197, 230, 197);
+}
+.sample__img__img:hover {
+    border: 1px solid rgb(92, 185, 92);
 }
 .tag__details {
     padding: 3px 10px;
@@ -257,10 +263,11 @@
 .shop__details__cont .left__shopdetails__additional .top__left__shopdetails__ {
     display: flex;
     gap: 50px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     width: 100%;
+    padding-inline: 200px;
     padding-bottom: 10px;
     border-bottom:  1px solid #e6e6e6;
 }
@@ -304,10 +311,52 @@
     flex-direction: column;
 }
 .imgPro {
-    margin: 25px 0;
+    margin: 45px 0;
+    position: relative;
+    display: inline-block;
+}
+.showIframe {
+    display: none;
+    z-index: 3;
+}
+.nowshowIframe {
+    display: block;
+    z-index: 3;
 }
 .imgPro img{
     border-radius: 5px;
+    display: block;
+}
+.imes__ifra {
+    font-size: 35px;
+    position: absolute;
+    color: #96ae00;
+    top: -14%;
+    right: 0;
+    display: block;
+}
+/* .imes__i {
+    z-index: 60;
+    margin-top: 20px;
+} */
+.nowshowIframe iframe {
+    z-index: 99;
+    width: 100%;
+    border-radius: 5px;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+.play-icon {
+    position: absolute;
+    font-size: 60px;
+    color: white;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
 }
 .product__details__detals small img {
     border-radius: 5px;
@@ -412,10 +461,6 @@
     gap: 10px;
     flex-direction: column;
 }
-.side__side__card_cont {
-    /* background-color: white; */
- 
-}
 
 .product__details__detals {
     padding: 15px 0;
@@ -426,6 +471,8 @@
     background-color: white;
     padding: 120px 100px;
     display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
 }
 .heading__related__post   {
     padding: 10px 0;
@@ -437,3 +484,6 @@
     display: flex;
     gap: 20px;
 }
+
+
+

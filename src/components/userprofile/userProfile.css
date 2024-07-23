@@ -1,0 +1,128 @@
+.user--profile h4 {
+    font-size: 24px;
+    width: 100%;
+    display: block;
+    font-weight: 400;
+    padding: 10px 0;
+    color: rgb(4, 4, 41);
+    border-bottom: 1px solid rgb(231, 231, 231);
+}
+.profile-- {
+    display: flex;
+    margin-top: 40px;
+    gap: 40px;
+    align-items: top;
+    justify-content: space-between;
+}
+ .persosnal__details {
+    padding: 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border: 1px solid rgb(214, 209, 209);
+}
+.avatar__form input {
+    padding: 0px;
+    margin: 0px;
+}
+
+.profile__avataer {
+    width: 12rem;
+    /* overflow: hidden; */
+}
+.profile__avataer img {
+    width: 100%;
+    border: 1rem solid rgb(231, 231, 231);
+    border-radius: 50%;
+}
+
+.avatar__form {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+   
+}
+.avatar__form label {
+    background-color: rgb(4, 68, 4);
+    color: white;
+    font-size: 1.3rem;
+    position: absolute;
+    padding: 0px;
+    width: 2rem;
+    height: 2rem;
+    display: grid; 
+    place-items: center;
+    border-radius: 50%;
+    top: 165px;
+    right: 64px;
+}
+/* .avatar__form label, .profile-avatar-btn  {
+    border-radius: 50%;
+}
+.profile-avatar-btn, .avatar__form label {
+    cursor: pointer;
+    padding: 0px;
+    font-size: 2rem;
+    display: grid;
+}
+.avatar__form label {
+    background: blue;
+} */
+
+/* .avatar__form input {
+    visibility: hidden;
+}
+
+.avatar__form label {
+    background-color: rgb(4, 68, 4);
+    color: white;
+    font-size: 1.3rem;
+    position: absolute;
+    padding: 0px;
+    width: 2rem;
+    height: 2rem;
+    display: grid; 
+    place-items: center;
+    border-radius: 50%;
+    top: 165px;
+    right: 64px;
+} */
+/*
+.profile-avatar-btn {
+    cursor: pointer;
+    padding: 0;
+    font-size: 2rem;
+    background: blue;
+}
+
+.profile--  h1 {
+margin-top: 10px;
+}
+.profile-- form .each__field {
+margin-top: 3rem;
+margin-inline: auto;
+width: 100%;
+}  */
+
+
+
+.user__profile__input_-form {
+    width: 100%;
+   background: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.user__profile__input_-form button{
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user__profile__input_-form .each__field input {
+    width: 100%;
+    border: 1px solid rgb(228, 228, 228);
+    padding: 10px;
+    border-radius: 5px;
+}

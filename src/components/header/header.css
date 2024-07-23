@@ -4,6 +4,7 @@
     font-size: 14px;
     letter-spacing: .1px;
 } 
+
 .main__header {
     display: flex;
     padding: 15px 90px;
@@ -63,10 +64,23 @@
 .rightHeaderrigghtEnglish small, .rightHeaderrigghtusd small {
     color: #dbd7d7;
 }
-.rightHeaderleft span, .rightHeaderrigghtEnglish span, .rightHeaderrigghtusd span {
+ .rightHeaderrigghtEnglish span, .rightHeaderrigghtusd span {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     padding-inline: 15px;
+}
+.rightHeaderleft  span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    padding-inline: 15px;
+}
+.rightHeaderleft  span a {
+    color: white;
+    font-weight: 400;
 }
 .border {
     width: 1px;

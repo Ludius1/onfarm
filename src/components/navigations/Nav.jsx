@@ -6,7 +6,7 @@ import { TbShoppingBagCheck } from "react-icons/tb";
 import { FaChevronDown } from "react-icons/fa";
 import { CiUser } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react';
 import HeroSlide2 from '../../assets/slider3-2-mobile.jpg'
 import { MdOutlineCancel } from "react-icons/md";
@@ -15,16 +15,62 @@ import { RiMenu4Fill } from "react-icons/ri";
 import Cart from './../../assets/cart.jpg'
 import CancelIcon from '../../assets/cancel-icon.svg'
 import { LiaTimesSolid } from "react-icons/lia";
+import { useContext } from 'react'
+import { isLoggedIn } from '../../../AppContext';
+import { useRef } from 'react'
 
 const Nav = () => {
       // const [isMouseOver, setIsMouseOver] = useState(false)
       const [BlogisMouseOver, setBlogIsMouseOver] = useState(false)
       const [openCart, setopenCart] = useState('')
+      const [userOption, setuserOption] = useState(false)
+      const navigateTo = useNavigate();
+      const [isDropDownopen, setdDropDownopen] = useState(false);
+      const [isLoggedin, setIsLoggedin] = useState(false); // Adjust the initial state based on your logic
+      const userOptionRef = useRef(null);
+
+      const handleClickOutside = (event) => {
+          setuserOption(false);
+      };
+    
+      useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+          document.removeEventListener('click', handleClickOutside, true);
+        };
+      }, []);
+    
+      const logoff = () => {
+        setIsLoggedin(false);
+        navigateTo('/login')
+      };
+      
 
       const handleclick = (className) => {
         setopenCart(className)
       }
       const [issearchOpen, setsearchOpen] = useState(false)
+
+     
+
+      const engRef = useRef(null)
+      // console.log(usdRef)
+      const OutsideClick = (refState, ref) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          // console.log("Outside click ")
+          refState(false)
+    
+        }
+      }
+
+      useEffect(() => {
+        document.addEventListener('click', () => OutsideClick(setdDropDownopen, engRef))
+    
+        return () => {
+          document.removeEventListener('click', () => OutsideClick(setdDropDownopen, engRef))
+        }
+      }, [])
+
   return (
     <>
       <div className="nav__sec">
@@ -39,14 +85,14 @@ const Nav = () => {
                 <Link to='/'> Home</Link>
                 <Link to='/shop' className='Shop__'> Shop</Link>
                 <Link to='/blog' className='Blog__' > Blog</Link>
-                <Link to='/'> Pages</Link>
-                <Link to='/'> About Us</Link>
+                <Link to='/faqs'> FAQs</Link>
+                <Link to='/about-us'> About Us</Link>
                 <Link to='/'> Contact Us</Link>
                             
               </div>
             <div className="nav__icon__sec">
                   <span className="nav__icons" onClick={() => setsearchOpen(!issearchOpen)}> <CiSearch /></span>
-                  <Link   className="nav__icons" to='/signup'> <CiUser /></Link> 
+                  <Link  onClick={() => setuserOption(!userOption)} className="nav__icons"> <CiUser /></Link> 
                   <span> <Link   className="nav__icons" to='/wishlist'> <CiHeart /></Link> </span>
                   
                   <span onClick={() => handleclick('displayCart')} className='shoppingbagIcon'>
@@ -55,7 +101,7 @@ const Nav = () => {
             </div>
           </div>
 
-          <div className={`bac__search ${issearchOpen ? 'showHover' : 'nullHover'}` }>
+          <div className={`bac__search ${issearchOpen ? 'showHover' : 'nullHover'}` } >
                  <div className=" search__sec">
                  <span className="inside__seaech__sec">
                       <small onClick={() => setsearchOpen(!issearchOpen)}>
@@ -71,6 +117,19 @@ const Nav = () => {
                   </span>
                  </div>
           </div>
+
+          <div ref={userOptionRef} className={`${userOption ? 'showUserOptionHover' : 'nullUserOptionHover'}`}>
+      <div onClick={() => setdDropDownopen(!isDropDownopen)}>
+        {isLoggedin ? (
+          <div className='dropq'>
+            <Link to='/userprofile'>User Profile</Link>
+            <Link to='/login' onClick={logoff}>Signout</Link>
+          </div>
+        ) : (
+          <Link to='/signup'>Signin</Link>
+        )}
+      </div>
+    </div>
 
 {/* 
           <div className={`Shop__hover ${isMouseOver ? 'showHover' : 'nullHover'}`} onMouseLeave={() => setIsMouseOver(false)}>

@@ -1,5 +1,5 @@
 import React, { Children } from 'react'
-import { FaRegStar } from "react-icons/fa6";
+import { FaRegStar, FaStar } from "react-icons/fa6";
 import { IoEyeOutline } from "react-icons/io5";
 import { useState } from 'react';
 import { CiHeart } from "react-icons/ci";
@@ -9,7 +9,7 @@ import {CardData} from './cardData'
 
 
 
-const ProductCard = ({cardData, width, padding, backgroundColor, borderRadius, left, display, id, product__category, old__price, desc, src, product__name, shop, NumberLeft, price, badge, type, mfg, life__span  }) => {
+const ProductCard = ({cardData, width, padding, backgroundColor,rating, borderRadius, left, display, id, product__category, old__price, desc, src, product__name, shop, NumberLeft, price, badge, type, mfg, life__span  }) => {
     
     // const formattedPrice = price.toFixed(2);
 
@@ -38,31 +38,45 @@ const ProductCard = ({cardData, width, padding, backgroundColor, borderRadius, l
     }
   return (
    <>
-        <Link to={`/shopdetails/${id}`}>
+      
         <div className="each__card" style={cardStyle} key={id}>
+
                 <div className="card"  onMouseEnter={() => setisProductShowing(true)} onMouseLeave={() => setisProductShowing(false)}>
-            <img className='product__image' src={src} alt="" />
+            
+            <span className='product_image_section'>
+            <Link to={`/shopdetails/${id}`}>
+                        <img className='product__image' src={src[0]} alt="" />
+                    </Link>
+            </span>
     
             <div className="product__details" style={productstyle}>
                 <small className='product__category'>{product__category}</small>
             <h4 className='product__name'>{product__name}</h4>
             <div className='grading'>
-            <FaRegStar />
-            <FaRegStar />
-            <FaRegStar />
-            <FaRegStar />
-            <FaRegStar />
-                </div>
-            <span className='price'>
-                 ${price}
-                <small className='old__price'>${old__price}</small>
+            {/* <FaRegStar /> */}
+
+            <div className="flex">
+            {new Array(5).fill(0).map((_, index) => (
+                                        <FaRegStar
+                                            key={index}
+                    className={`${
+                        index <= {rating} - 1 && "text-[#FFAD33] opacity-100"
+                    }  text-[20px] text-white opacity-25`}
+                    />
+                ))}
+        </div>
+
+            </div>
+            <span className='price'> 
+                <strong>${price}.00</strong>
+                <small className='old__price'>${old__price}.00</small>
             </span>
             <span> <input type="range" className="range" style={range} value="20" min='0' max="100" name="" id="" /></span>
             <span className='No__left'  style={No__left}> Sold:<small> {shop} /{NumberLeft}</small></span>
             
             <div className="positioning">
                     <div className="left__positioning">
-                       {desc &&  <span className='desc'>{desc}</span> }
+                       {desc &&  <span className='desc'>{desc}%</span> }
                       {badge &&  <small  className='badge'>{badge}</small>}
                     </div>
             </div>
@@ -77,15 +91,14 @@ const ProductCard = ({cardData, width, padding, backgroundColor, borderRadius, l
         
                         </div>
                 </div>
-    
                 <div className="hover__btn">
-                     <button className="add_to__cart">ADD TO CART</button>
-                </div>
+                                        <button className="add_to__cart">ADD TO CART</button>
+                                    </div>
     
                 <span className='products__hover__more__dec'>
-                    <small className='type'>Type: {type}</small>
+                    <small className= 'type'>Type: {type}</small>
                     <small className='mfg'>MFG: {mfg}</small>
-                    <small className='life__span'>Life: {life__span}</small>
+                    <small className='life__span'>LIFE: {life__span} days</small>
                 </span>
             </div>
 
@@ -93,8 +106,7 @@ const ProductCard = ({cardData, width, padding, backgroundColor, borderRadius, l
             </div>
         </div>
         </div>
-        
-        </Link>
+
    </>
   )
 }

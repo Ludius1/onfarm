@@ -6,6 +6,7 @@ import './errorPage.css'
 
 
 const ErrorPage = () => {
+  window.scrollTo(0,0)
   return (
     <div className="errorPage">
         <div className="eror__cont">

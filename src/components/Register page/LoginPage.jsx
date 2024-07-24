@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './../signup/signup.css'
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { CiLock } from "react-icons/ci";
@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import Cart from '../cart/Cart';
 import {toast} from 'sonner'
 import axios from 'axios'
+import { AuthContext } from '../../context/authContext';
 
 
 const LoginPage = () => {
@@ -27,6 +28,9 @@ const LoginPage = () => {
        })
        const [isLoading, setIsLoading] = useState(false);
        const navigateTo = useNavigate();
+
+       const {login, token, user} = useContext(AuthContext)
+       console.log(token, user)
     
        const handlechange = (e) => {
         setUserData(prevState => {
@@ -43,10 +47,12 @@ const LoginPage = () => {
            if (response.status === 200) {
             console.log(response)
             toast.success(response.data?.msg);
+            const user = response.data.data
             setIsLoading(false)
             const token = response.data?.token;
             console.log(token)
-            localStorage.setItem('token', token);
+            login(user, token)
+            // localStorage.setItem('token', token);
             navigateTo('/'); 
           }
         } catch (error) {

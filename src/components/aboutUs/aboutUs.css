@@ -1,26 +1,39 @@
 
-
-
-@keyframes about-im {
+@keyframes move {
     0% { transform: translateX(0); }
     50% { transform: translateX(20px); }
     100% { transform: translateX(0); }
   }
   
-  .abouimg {
+  .AboutImg {
     animation: move 2s infinite;
-    display: none;
+  }
+
+  @keyframes moving-img {
+    0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(3px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+  }
+
+  .moving-img {
+    animation: moving-img 2s infinite;
   }
 
   .abiutus {
     background-color: white;
-    padding: 50px 90px;
   }
   .main-abouyts {
     display: grid;
     padding: 90px 0;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
+    padding: 50px 90px;
   }
   .head-- {
     display: flex;
@@ -94,6 +107,7 @@
   .about--middle {
     display: grid;
     grid-template-columns:  1fr 1fr 1fr;
+    padding: 50px 90px;
   }
   .about--middle section{
     display: flex;
@@ -102,5 +116,67 @@
     text-align: center;
     padding: 20px 100px;
   }
+  .about--middle section h4{
+    font-size: 16px;
+    color: #2D2A6E;
+    font-family: var(--pri-font-family);
+    font-weight: 700;
+  }
+  .about--middle section small{
+    font-size: 16px;
+    color: #4D5574;
+    font-weight: 400;
+    padding: 10px 0;
+    line-height: 20px;
+  }
 
+  .middle-back {
+    background-color: #F2F2F6;
+    text-align: center;
+  }
+  .middle-back h2{
+    color: #2D2A6E;
+    font-family: var(--pri-font-family);
+    font-weight: 700;
+    font-size: 30px;
+  }
+  .middle-back small{
+    color: #4D5574;
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+.list-o- {
+    padding: 50px 90px;
+}
+  .inside--list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+      padding: 50px 0;
+  }
+  .list-o- span {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+  .list-o- h4 {
+    font-size: 22px;
+    color: #2D2A6E;
+    font-family: var(--pri-font-family);
+    font-weight: 700;
+    padding: 10px 0;
+  }
+  .list-o- small {
+    font-size: 16px;
+    color: #2D2A6E;
+    font-weight: 400;
+    padding: 0px 50px;
+  }
+  .list-o- img {
+    width: 95%;
+    padding: 10px 0;
+  }
   

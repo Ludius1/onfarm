@@ -10,12 +10,11 @@ import BrandPost from '../featuredproductcard/BrandPost'
 
 const FeaturedBrands = () => {
     const CardBrandFeature = [
-        {brandproductId: 1,  src:Chicken, FeaturedBrand_img: FeaturedBrand1, featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, featured_update_price: 19.00, featured_update_discount: '-50%'  },
-        {brandproductId: 2, src:Chicken, FeaturedBrand_img: FeaturedBrand1,  featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, featured_update_price: 19.00, featured_update_discount: '-50%'  },
-        {brandproductId: 3, src:Chicken, FeaturedBrand_img: FeaturedBrand1,  featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, FeaturedBrand_img: FeaturedBrand1,  featured_update_price: 19.00, featured_update_discount: '-50%'  },
-        {brandproductId: 4, FeaturedBrand_img: FeaturedBrand1,  src:Chicken, featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, featured_update_price: 19.00, featured_update_discount: '-50%'  },
-        {brandproductId: 5, FeaturedBrand_img: FeaturedBrand1,  src:Chicken, featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, featured_update_price: 19.00, featured_update_discount: '-50%'  },
-        {brandproductId: 6, src:Chicken, FeaturedBrand_img: FeaturedBrand1,  featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, FeaturedBrand_img: FeaturedBrand1,  featured_update_price: 19.00, featured_update_discount: '-50%'  },
+        { brandproductId: 1, src: Chicken, FeaturedBrand_img: FeaturedBrand1, featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, featured_update_price: 19.00, featured_update_discount: '-50%' },
+  { brandproductId: 2, src: Chicken, FeaturedBrand_img: FeaturedBrand1, featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, featured_update_price: 19.00, featured_update_discount: '-50%' },
+  { brandproductId: 3, src: Chicken, FeaturedBrand_img: FeaturedBrand1, featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, featured_update_price: 19.00, featured_update_discount: '-50%' }, // Remove the duplicate key
+  { brandproductId: 4, FeaturedBrand_img: FeaturedBrand1, src: Chicken, featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, featured_update_price: 19.00, featured_update_discount: '-50%' },
+  { brandproductId: 5, FeaturedBrand_img: FeaturedBrand1, src: Chicken, featured__product__name: 'Mangosteen Organic From VietNamese', featured__price: 56.00, featured_update_price: 19.00, featured_update_discount: '-50%' },
     ]
 
     const BrandPosts = [

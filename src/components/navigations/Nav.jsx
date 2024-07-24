@@ -77,7 +77,8 @@ const Nav = () => {
             <div id='nav' >
               <span className='navv__menu'><RiMenu4Fill /></span>
               <div className="logo__sec">
-                  <img src={Logo} alt="" className="logo" />
+                 
+                  <Link to='/'>  <img src={Logo} alt="" className="logo" /></Link>
               </div>
 
               <div className="middle__nav">
@@ -87,7 +88,7 @@ const Nav = () => {
                 <Link to='/blog' className='Blog__' > Blog</Link>
                 <Link to='/faqs'> FAQs</Link>
                 <Link to='/about-us'> About Us</Link>
-                <Link to='/'> Contact Us</Link>
+                <Link to='/contact-us'> Contact Us</Link>
                             
               </div>
             <div className="nav__icon__sec">

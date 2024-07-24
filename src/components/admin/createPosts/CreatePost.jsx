@@ -95,8 +95,8 @@ const CreatePost = () => {
 
   const handleImageChange = (e) => {
     const files = e.target.files;
-    if (files.length > 3) {
-      alert('You can only upload up to 3 images.');
+    if (files.length > 1) {
+      alert('You can only upload up to 1 images.');
       return;
     }
     const formData = new FormData()

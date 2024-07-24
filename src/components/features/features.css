@@ -6,6 +6,16 @@
     background-color: white;
     padding-bottom: 70px;
 }
+
+@keyframes ims-- {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+  }
+
+  .ims-- {
+    animation: ims-- 2s infinite;
+  }
 .other {
     /* background-color: white; */
     border-bottom:  1px solid #ececec;

@@ -16,7 +16,7 @@ const Features = () => {
         {otherdata.map((otherdata)=> (
             <div className="features"  key={otherdata.id}>
             <span>
-                <img src={otherdata.src} alt="" />
+                <img src={otherdata.src} alt="" className='ims--' />
             </span>
             <h6>{otherdata.head}</h6>
             <small>{otherdata.dec}</small>

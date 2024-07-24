@@ -340,7 +340,7 @@
     margin-top: 20px;
 } */
 .nowshowIframe iframe {
-    z-index: 99;
+  
     width: 100%;
     border-radius: 5px;
     height: 100%;

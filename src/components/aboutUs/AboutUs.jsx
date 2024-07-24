@@ -15,7 +15,7 @@ const AboutUs = () => {
   return (
     <div className='abiutus'>
            <div className='main-abouyts'>   
-                <img src={AboutImg} alt="" />
+                <img src={AboutImg} alt="" className='AboutImg'/>
 
                 <div className="right-about">
                     <span className="head--">
@@ -59,13 +59,13 @@ trspiciatis unde omnis iste natus error sit voluptatem accusantium.</small>
                 Keep, add, or remove items.</small>
             </section>
             <section>
-                <img src={About2} alt="" />
+                <img src={About2} alt="" className="moving-img" />
                 <h4>Our Shop Orfarm</h4>
                 <small>We provide 100+ products, provide
                 enough nutrition for your family.</small>
             </section>
             <section>
-                <img src={About3} alt="" />
+                <img src={About3} alt="" className="moving-img"  />
                 <h4>Delivery To Your</h4>
                 <small>Delivery to your door. Up to 100km
                 and it's completely free.</small>
@@ -74,17 +74,38 @@ trspiciatis unde omnis iste natus error sit voluptatem accusantium.</small>
 
 
         <div className="middle-back">
+
+            <div className="list-o-">
             <h2>Our Amazing Work</h2>
             <small>The liber tempor cum soluta nobis eleifend option congue doming quod mazim.</small>
 
-            <div className="list-o-">
+                <div className="inside--list">
                 <span>
-                    <img src="" alt="" />
-                    <h2>Who We Are</h2>
+                    <img src={Aboutbac} alt="" />
+                    <h4>Who We Are</h4>
                     <small>Lorem ipsum dolor sit amet consectetur
 adipisicing elit, sed do eiusmod tempor labore
 et dolore dignissimos cumque.</small>
                 </span>
+
+    
+                    <span>
+                        <img src={Aboutbac1} alt="" />
+                        <h4>Who We Are</h4>
+                        <small>Lorem ipsum dolor sit amet consectetur
+adipisicing elit, sed do eiusmod tempor labore
+et dolore dignissimos cumque.</small>
+                    </span>
+                    <span>
+                        <img src={Aboutbac2} alt="" />
+                        <h4>Our Products
+                        </h4>
+                        <small>Lorem ipsum dolor sit amet consectetur
+adipisicing elit, sed do eiusmod tempor labore
+et dolore dignissimos cumque.</small>
+                    </span>
+                </div>
+                  
             </div>
         </div>
 

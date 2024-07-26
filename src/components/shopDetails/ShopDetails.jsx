@@ -27,6 +27,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
+import { toast } from 'sonner';
 import { AuthContext } from "../../context/authContext";
 
 function ShopDetails() {
@@ -55,10 +56,16 @@ function ShopDetails() {
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => {
+        toast.success(response.data.msg);
         console.log(response.data.message);
         navigate("/cart");
       })
-      .catch((error) => console.error("Error adding to cart:", error));
+      .catch((error) => {
+        toast.error(error.message);
+        console.error("Error adding to cart:", error);
+      })
+       
+     
   };
 
   const handleMinus = () => {

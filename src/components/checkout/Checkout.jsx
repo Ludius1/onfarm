@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { AuthContext } from "../../context/authContext";
 import { GoFileDirectoryFill } from "react-icons/go";
 import { Link } from 'react-router-dom';
 import { FiMinus } from "react-icons/fi";
@@ -6,12 +8,41 @@ import { GoPlus } from "react-icons/go";
 import '../checkout/checkout.css'
 
 const Checkout = () => {
-    const [openPFAQ, setOpenPFAQ] = useState(false)
-    const [changePlusMinus, setchangePlusMinus] = useState(false)
+    const [openPFAQ1, setOpenPFAQ1] = useState(false);
+  const [openPFAQ2, setOpenPFAQ2] = useState(false);
+  const [openPFAQ3, setOpenPFAQ3] = useState(false);
+    const [products, setProducts] = useState([]);
+  const [cartTotals, setCartTotals] = useState({ subtotal: 0, total: 0 });
+  const [reload, setReload] = useState(false);
 
-    const handlechangePlusMinus = (className) => {
-        setchangePlusMinus(className)
-    }
+  const { token, user } = useContext(AuthContext);
+
+  const headers = {
+    authorization: `Bearer ${token}`,
+  };
+
+  const getCartItems = () => {
+    axios
+      .get("http://localhost:5000/api/v1/products/cart", { headers })
+      .then((response) => {
+        setProducts(response.data.cart);
+        calculateTotals(response.data.cart); // Calculate totals when cart items are fetched
+      })
+      .catch((error) => console.error("Error fetching cart items:", error));
+  };
+
+
+  useEffect(() => {
+    getCartItems();
+  }, [reload]);
+
+  const calculateTotals = (items) => {
+    const subtotal = items.reduce(
+      (sum, product) => sum + product.product?.productId?.price * product?.product?.quantity,
+      0
+    );
+    setCartTotals({ subtotal, total: subtotal });
+  };
 
   return (
     <div className="checkout__section">
@@ -124,76 +155,89 @@ const Checkout = () => {
                                     <small>Total</small>
                                 </div>
 
-                                <div className="head-reciept--">
-                                    <span>Vestibulum suscipit <strong>x <small>1</small></strong></span> 
-                                    <small>$165.00</small>
+                                {products?.map((product) => (
+                                <div key={product._id} className="head-reciept--" >
+                                    <span>{product?.product?.productId?.product__name} <strong>x <small>{product?.product?.quantity}</small></strong></span> 
+                                    <small>${product.product?.productId?.price * product?.product?.quantity}.00</small>
+                             
                                 </div>
-                                <div className="head-reciept--">
-                                    <span>Vestibulum suscipit dictum magna <strong>x <small>1</small></strong></span> 
-                                    <small>$165.00</small>
-                                </div>
-
+                                   ))}
                                 <div className="head-reciept--">
                                     <span>Cart Subtotal</span> 
 
                                     <div className="radio--recipt">
-                                        <small>
-                                            <input type="radio" name="" id="" />
-                                            <span>Flat Rate: $7.00</span>
+                                        <small> 
+                                        
+                                            <input type="radio" name="shipping" id="radio1" />
+                                            <label htmlFor="radio1">Flat Rate: $0.00</label>
                                         </small>
                                         <small>
-                                            <input type="radio" name="" id="" />
-                                            <span>Free Shipping</span>
+                                        
+                                            <input type="radio" name="shipping" id="radio2" />
+                                            <label htmlFor="radio2">Free Shipping</label>
                                         </small>
                                     </div>
+
                                 </div>
 
                                 <div className="head-reciept-- special">
                                     <span>Order Total</span> 
-                                    <small className='sub-total'>$265.00</small>
+                                    <small className='sub-total'>${cartTotals.total}</small>
                                 </div>
                             </div>
 
 
                             <div className="payment--type">
-                                <div className="MethodTransfer">
-                                        <span className="top__methodTransfer" onClick={()=> setOpenPFAQ(!openPFAQ)}>
-                                             <small>Direct Bank Transfer </small>
-                                             <div className="reviept--icon" >
-                                                <small  className={`minus__recipt`}><GoPlus/></small>
-                                                <small className={`plus__recipt `}><FiMinus/></small>
-                                             </div>
-                                        </span>
+      <div className="MethodTransfer">
+        <span className="top__methodTransfer" onClick={() => setOpenPFAQ1(!openPFAQ1)}>
+          <small>Direct Bank Transfer </small>
+          <div className="reviept--icon">
+            <small className="icon__toggle">
+              {openPFAQ1 ? <FiMinus /> : <GoPlus />}
+            </small>
+          </div>
+        </span>
+        <div className={`openPFAQ ${openPFAQ1 ? 'open' : ''}`}>
+          <small>
+            Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.
+          </small>
+        </div>
+      </div>
 
-                                        <small className={`plus__recipt ${openPFAQ ? 'minus__recipt' : false} `}>
-                                        Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.
-                                        </small>
-                                </div>
+      <div className="MethodTransfer">
+        <span className="top__methodTransfer" onClick={() => setOpenPFAQ2(!openPFAQ2)}>
+          <small>Cheque Payment</small>
+          <div className="reviept--icon">
+            <small className="icon__toggle">
+              {openPFAQ2 ? <FiMinus /> : <GoPlus />}
+            </small>
+          </div>
+        </span>
+        <div className={`openPFAQ ${openPFAQ2 ? 'open' : ''}`}>
+          <small>
+            Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
+          </small>
+        </div>
+      </div>
 
-                                <div className="MethodTransfer">
-                                        <span className="top__methodTransfer">
-                                             <small>Cheque Payment</small>
-                                             <div className="reviept--icon">
-                                                <small className="minus__recipt"><GoPlus/></small>
-                                                <small className="plus__recipt"><FiMinus/></small>
-                                             </div>
-                                        </span>
-                                        <small className='plus__recipt'>
-                                        Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
-                                        </small>
-                                </div>
+      <div className="MethodTransfer">
+        <span className="top__methodTransfer" onClick={() => setOpenPFAQ3(!openPFAQ3)}>
+          <small>PayPal</small>
+          <div className="reviept--icon">
+            <small className="icon__toggle">
+              {openPFAQ3 ? <FiMinus /> : <GoPlus />}
+            </small>
+          </div>
+        </span>
+        <div className={`openPFAQ ${openPFAQ3 ? 'open' : ''}`}>
+          <small>
+            Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.
+          </small>
+        </div>
+      </div>
+                                 </div>
 
-                                <div className="MethodTransfer">
-                                        <span className="top__methodTransfer">
-                                        <small>PayPal</small>
-                                             <div className="reviept--icon">
-                                                <small className="minus__recipt"><GoPlus/></small>
-                                                <small className="plus__recipt"><FiMinus/></small>
-                                             </div>
-                                        </span>
-                                       <small className='plus__recipt'> Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</small>
-                                </div>
-                            </div>
+
 
                             <button>PLACE ORDER</button>
                         </div>

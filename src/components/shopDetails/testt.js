@@ -1,19 +1,93 @@
-try {
-  // Find the ID for the "Weekly Food Offers" section
-  const NewArrivalSection = await ProductSection.find({ product__section: 'New Arrivals' });
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'sonner';
+import './dashboard.css';
 
-  if (!NewArrivalSection) {
-      return res.status(404).json({ message: 'New arrival product section not found' });
-  }
+const Dashboard = () => {
+    const [allProducts, setAllProducts] = useState([]);
+    const [content, setContent] = useState('');
+  const [newContent, setNewContent] = useState('');
 
-  // Query products with the found section ID
-  const newArrivalProducts = await Product.find({ prdSectionId: NewArrivalSection._id }).populate('prdDetailsId')   
-  .populate('prdCategoryId')
-  .populate('prdSectionId')
-  .sort({ createdAt: -1 });
 
-  return res.status(200).json(newArrivalProducts);
-} catch (error) {
-  console.error(error);
-  return res.status(500).json({ message: 'Server error' });
+
+  const updateNotification = async () => {
+    const response = await axios.post('http://localhost:5000/api/v1/products/notification', { content: newContent });
+    setContent(response.data.content);
+  };
+
+
+    const handleDelete = async (productId) => {
+        try {
+            await axios.delete(`http://localhost:5000/api/v1/products/${productId}`);
+            setAllProducts(allProducts.filter(product => product._id !== productId));
+            toast.success('Product deleted successfully');
+        } catch (error) {
+            console.error('Error deleting product:', error);
+            toast.error('Failed to delete product');
+        }
+    };
+
+    return (
+        <div className="Signup">
+            <div className="Dashboard">
+                <div className="headd">
+                    <h4>Admin Dashboard</h4>
+
+                    <div className="left__dashboard">
+                        <div className="btn--fgr">
+                            <button>
+                                <Link to='/admin/create-product'>Add Products</Link>
+                            </button>
+                            <div>
+    
+      </div>
+      <input className='innnnns'
+        type="text"
+        value={newContent}
+        onChange={(e) => setNewContent(e.target.value)}
+      />
+      <button onClick={updateNotification}>Update Notification</button>
+
+
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div className='All__dashboard'>
+                    <div className="right__dashboard">
+                        {allProducts.map(cardData => {
+                            const imgSrc = cardData.prdDetailsId?.src?.[0]; // Safely access the first image URL
+
+                            return (
+                                <div key={cardData._id} className="dashboard_post">
+                                    <div className="dashboard__post-info">
+                                        <div className="dashboard__post-thumbnail">
+                                            {imgSrc ? (
+                                                <img src={imgSrc} alt={cardData.product__name} />
+                                            ) : (
+                                                <img src="default-image-url.jpg" alt="Default" /> // Add a default image URL
+                                            )}
+                                        </div>
+
+                                        <h5 className="post__title">{cardData.product__name || "Unnamed Product"}</h5>
+                                    </div>
+
+                                    <div className="dashboard-post-action">
+                                        <Link to={`/admin/create-product/${cardData._id}`} className='btn--view'>Edit</Link>
+                                        <Link to={`/shopdetails/${cardData._id}`} className='btn--view'>View</Link>
+                                        <button onClick={() => handleDelete(cardData._id)} className='btn--delete'>Delete</button>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    );
 }
+
+export default Dashboard;

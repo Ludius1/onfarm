@@ -1,11 +1,14 @@
 import React, { Children } from 'react'
+import  { useContext } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { IoEyeOutline } from "react-icons/io5";
 import { useState } from 'react';
 import { CiHeart } from "react-icons/ci";
 import './../card/card.css'
 import { Link } from 'react-router-dom';
-import {CardData} from './cardData'
+import { AuthContext } from "../../context/authContext";
+import axios from "axios";
+import { toast } from 'sonner';
 
 
 
@@ -36,6 +39,28 @@ const ProductCard = ({cardData, width, padding, backgroundColor,rating, borderRa
     const clse= {
         display: display
     }
+    const [product, setProduct] = useState({});
+    const {token } = useContext(AuthContext)
+    const handleAddToCart = () => {
+        // const token = localStorage.getItem("authToken"); // Get the token from local storage or wherever it is stored
+        console.log(token);
+        axios
+          .post(
+            "http://localhost:5000/api/v1/products/cart/add",
+            { productId: product._id},
+            { headers: { Authorization: `Bearer ${token}` } }
+          )
+          .then((response) => {
+            toast.success(response.data.msg);
+            console.log(response.data.message);
+          })
+          .catch((error) => {
+            toast.error(error.message);
+            console.error("Error adding to cart:", error);
+          })
+           
+         
+      };
   return (
    <>
       
@@ -71,7 +96,7 @@ const ProductCard = ({cardData, width, padding, backgroundColor,rating, borderRa
                 <strong>${price}.00</strong>
                 <small className='old__price'>${old__price}.00</small>
             </span>
-            <span> <input type="range" className="range" style={range} value="20" min='0' max="100" name="" id="" /></span>
+            <span> <input type="range" className="range" style={range} value={shop} min='1' max={No__left} name="" id="" /></span>
             <span className='No__left'  style={No__left}> Sold:<small> {shop} /{NumberLeft}</small></span>
             
             <div className="positioning">
@@ -92,8 +117,11 @@ const ProductCard = ({cardData, width, padding, backgroundColor,rating, borderRa
                         </div>
                 </div>
                 <div className="hover__btn">
-                                        <button className="add_to__cart">ADD TO CART</button>
+                {/* <Link to={`/shopdetails/${id}`}> */}
+                                        <button  onClick={handleAddToCart} className="add_to__cart">ADD TO CART</button>
+                                    
                                     </div>
+                                    
     
                 <span className='products__hover__more__dec'>
                     <small className= 'type'>Type: {type}</small>

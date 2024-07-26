@@ -1,15 +1,19 @@
-.blog__section {
-    /* display: grid;
-    grid-template-columns: 1r 1fr 1fr; */
-    display: flex;
-    gap: 30px;
-}
+
 .blog__card {
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 15px;
     width: 450px;
+}
+.blog__section {
+    padding: 50px 0;
+}
+.blog__sections {
+    padding: 40px 0;
+}
+.wddw {
+    padding-top: 40px;
 }
 .blog__card img {
     width: 100%;

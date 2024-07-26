@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './createPost.css';
 import axios from 'axios';
 import { toast } from 'sonner';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const CreatePost = () => {
   const [postDetails, setPostDetails] = useState({
@@ -34,6 +35,9 @@ const CreatePost = () => {
     productSupremeQualityDetails: ''
   });
 
+  const { id } = useParams(); // Get product ID from URL params
+  const navigate = useNavigate(); // To handle redirection
+
   const PostCategories = [
     'Vegetables', 'Fresh Fruits', 'Fresh Drink', 'Fresh Bakery', 'Biscuits Snacks', 'Fresh Meat', 'Fresh Milk'
   ];
@@ -49,6 +53,21 @@ const CreatePost = () => {
   const [productImgLeft, setproductImgLeft] = useState('');
   const [isPending, setIsPending] = useState(false);
   const [url, setUrl] = useState('');
+
+  useEffect(() => {
+    if (id) {
+      const fetchProductDetails = async () => {
+        try {
+          const response = await axios.get(`http://localhost:5000/api/v1/products/${id}`);
+          setPostDetails(response.data);
+        } catch (error) {
+          console.error('Failed to fetch product details:', error);
+        }
+      };
+
+      fetchProductDetails();
+    }
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -136,7 +155,7 @@ const CreatePost = () => {
 
   return (
     <div className='Signup'>
-      <h1>Add Product</h1>
+       <h1>{id ? 'Edit Product' : 'Add Product'}</h1>
       <form className="form-container" onSubmit={handleSubmit}>
         <div className="input-row">
           <span>

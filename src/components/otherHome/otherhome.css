@@ -7,6 +7,40 @@
     padding: 20px;
     position: relative;
 }
+.testimonials {
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  }
+  
+  .slide-out-left {
+    transform: translateX(-60%);
+    opacity: 0;
+  }
+  
+  .slide-in-right {
+    transform: translateX(80%);
+    opacity: 0;
+  }
+  
+  .slide-in-right.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .slide-out-right {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  
+  .slide-in-left {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  
+  .slide-in-left.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
 .testimoniall__section {
     display: flex;
     flex-direction: row;

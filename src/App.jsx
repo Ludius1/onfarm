@@ -23,6 +23,9 @@ import Loader from "./components/loader/Loader";
 import { useState } from "react";
 import AboutUs from "./components/aboutUs/AboutUs";
 import { AuthContext, AuthProvider } from "./context/authContext";
+import ContactUs from "./components/contactUs/ContactUs";
+import BlogDetails from "./components/latestnews/BlogDetails";
+import Latestnews from "./components/latestnews/Latestnews";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -42,9 +45,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/faqs" element={<Faqs />} />
+        <Route path="/news" element={<Latestnews />} />
+        <Route path="/news/:id" element={<BlogDetails />} />
           <Route path="/about-us" element={<AboutUs />} />
           {/* <Route path='/shop/categories/:category' element={<kk/>}/> */}
           <Route path="/signup" element={<Signup />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/login" element={<LoginPage />} />
           <Route
             path="/shopdetails/:id"
@@ -56,6 +62,7 @@ function App() {
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/featuredbrands" element={<FeatureddBrand />} />
           <Route path="/error/404" element={<ErrorPage />} />
+          <Route path='/admin/create-product/:id' element={<CreatePost />} />
           <Route path="/admin/create-product" element={<CreatePost />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />
         </Routes>

@@ -1,3 +1,38 @@
 .new__arrival__section {
     padding: 80px;
 }
+
+.card__viewproducts {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+  }
+  
+  .carousel__item {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    height: 100%;
+    text-align: start;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
+  .carousel .slide {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding: 0px;
+    text-align: start;
+  }
+  
+  .carousel .control-arrow {
+    opacity: 0.7;
+  }
+  
+  .carousel .control-arrow:hover {
+    opacity: 1;
+  }
+  

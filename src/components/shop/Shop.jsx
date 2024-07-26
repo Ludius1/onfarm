@@ -6,6 +6,7 @@ import axios from 'axios';
 import Card from '../card/Card'
 import { CardData } from '../card/cardData';
 import '../../components/shop/shop.css'
+import { useLocation } from 'react-router-dom';
 import { FaChevronDown } from "react-icons/fa";
 import Category1 from '../../assets/category-1.jpg'
 import Category2 from '../../assets/category-2.jpg'
@@ -31,6 +32,7 @@ const Shop = () => {
         {id: 7, src: Category7 , name: 'Fresh Milk'}
     ]
     const [currentGrid, setcurrentGrid] = useState('')
+    const [filteredProducts, setFilteredProducts] = useState([]);
     const [changeColor, setchangeColor] = useState('')
     const [changeSorting, setChangeSorting] = useState(false);
     const [selectedOption, setSelectedOption] = useState('Default sorting');
@@ -41,12 +43,25 @@ const Shop = () => {
       setSelectedOption(option);
       setChangeSorting(false);
     };
+    const location = useLocation();
+    const query = new URLSearchParams(location.search);
+    const searchQuery = query.get('search') || '';
 
 
     const handleClick = (className) => {
         setcurrentGrid(className)
         
     }
+    useEffect(() => {
+        if (searchQuery) {
+          const filtered = products.filter(product => 
+            product.name.includes(searchQuery)
+          );
+          setFilteredProducts(filtered);
+        } else {
+          setFilteredProducts(products);
+        }
+      }, [searchQuery, products]);
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -100,9 +115,9 @@ const Shop = () => {
                 <div className="inside__showing__products">
                
                 <span className="left__showing__">
-                        <small>
-                            Showing 1 - {products.length} of {selectedCategory ? `${selectedCategory}` : 'all products'}
-                        </small>
+                <small>
+              Showing 1 - {filteredProducts.length} of {selectedCategory ? `${selectedCategory}` : 'all products'}
+            </small>
                         
                     </span>
                      
@@ -164,7 +179,7 @@ const Shop = () => {
                 </div>
             </div>
 
-            {products.length > 0 ? (
+            {filteredProducts.length > 0 ? (
         <span className={`shop__card__style__one  ${currentGrid}`} >
             {products.map(product => {
                 const {

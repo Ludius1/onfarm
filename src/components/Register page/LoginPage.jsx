@@ -47,11 +47,12 @@ const LoginPage = () => {
            if (response.status === 200) {
             console.log(response)
             toast.success(response.data?.msg);
+    
             const user = response.data.data
             setIsLoading(false)
             const token = response.data?.token;
             console.log(token)
-            login(user, token)
+            login(user, token);
             // localStorage.setItem('token', token);
             navigateTo('/'); 
           }
@@ -81,7 +82,7 @@ const LoginPage = () => {
 
                    <span className='each__field'>
                        <small><FiUser className='fild___icon'/></small>
-                       <input type="text" name='email' value={userData.email} onChange={handlechange} placeholder='Username / email address' autoFocus />
+                       <input type="text" name='email' value={userData.email} onChange={handlechange} placeholder='Email address' autoFocus />
                    </span>
 
                    <span  className='each__field'>

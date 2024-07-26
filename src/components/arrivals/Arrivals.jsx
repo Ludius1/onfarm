@@ -1,14 +1,11 @@
 import React from 'react'
-import { LuChevronRight } from "react-icons/lu";
 import './arrivals.css'
-import Card from '../card/Card';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import BGBanner from './../../assets/tpbanner.jpg'
-import Weekly from '../weeklyProducts/Weekly';
 import ProductCartHead from '../productCartHead/ProductCartHead';
 import ProductCard from '../card/ProductCard';
-import { CardDataArrival } from './ArrivalsData';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Arrivals = () => {
   const [products, setProducts] = useState([])
@@ -36,33 +33,50 @@ const Arrivals = () => {
         
         
         <div className="card__viewproducts">
-        {products.map(product => {
-                const {
-                    _id,  prdDetailsId: {src= src[0]}, prdCategoryId: { product__category = '' } = {}, prdSectionId: { product__section = '' } = {}, old__price = '', desc = '', product__name = '', shop = '', NumberLeft = '', price = '', badge = '', type = '', mfg = '', life__span = '', ratings = 0
-                } = product;
-                return (
-                    <ProductCard 
-                        key={_id} 
-                        id={_id}
-                        src={src}
-                        product__category={product__category}
-                        product__section={product__section}
-                        old__price={old__price}
-                        desc={desc}
-                        product__name={product__name}
-                        shop={shop}
-                        NumberLeft={NumberLeft}
-                        price={price}
-                        badge={badge}
-                        type={type}
-                        mfg={mfg}
-                        life__span={life__span}
-                        ratings={ratings}
-                    />
-                );
-            })}
-             
-        </div>
+ 
+          {products.map(product => {
+            const {
+              _id, 
+              prdDetailsId: { src = [""] },
+              prdCategoryId: { product__category = '' } = {},
+              prdSectionId: { product__section = '' } = {}, 
+              old__price = '', 
+              desc = '', 
+              product__name = '', 
+              shop = '', 
+              NumberLeft = '', 
+              price = '', 
+              badge = '', 
+              type = '', 
+              mfg = '', 
+              life__span = '', 
+              ratings = 0
+            } = product;
+
+            return (
+              <div key={_id} className="carousel__item">
+                <ProductCard 
+                  id={_id} 
+                  src={src}
+                  product__category={product__category}
+                  product__section={product__section}
+                  old__price={old__price}
+                  desc={desc}
+                  product__name={product__name}
+                  shop={shop}
+                  NumberLeft={NumberLeft}
+                  price={price}
+                  badge={badge}
+                  type={type}
+                  mfg={mfg}
+                  life__span={life__span}
+                  ratings={ratings}
+                />
+              </div>
+            );
+          })}
+
+      </div>
     </div>
   )
 }

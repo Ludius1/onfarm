@@ -13,14 +13,14 @@
     /* position: relative; */
     position: sticky;
     top: 0px;
-    z-index: 9;
+    z-index: 999;
     box-shadow:rgba(0, 0, 0, 0.04) 0px 8px 15px;
 }
 .bac__search {
     position: fixed;
     top: 0px;
     left: 0;
-    z-index: 999;
+    z-index: 99999;
     right: 0;
     bottom: 0;
     backdrop-filter: 50%;
@@ -31,7 +31,7 @@
     top: 0px;
     height: 400px;
     left: 0;
-    z-index: 9999;
+    z-index: 99999;
     right: 0;
     bottom: 0;
     background-color: #ffffff;
@@ -142,7 +142,7 @@
     top: 92px;
     right: 50%;
     background-color: white;
-    z-index: 88;
+    z-index: 898;
     border-top: 3px solid #96AE00;
     box-shadow:rgba(0, 0, 0, 0.04) 0px 8px 15px;
 }
@@ -371,6 +371,8 @@
     background-color: white;
     padding: 17px;
     border: 3px solid #96AE00;
+    display: block;
+    width: 100%;
     border-radius: 30px;
     font-weight:700;
     color: #96AE00;

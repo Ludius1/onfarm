@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import '../header/header.css'
+import axios from 'axios';
+import { toast } from 'sonner';
 import { FaChevronDown } from "react-icons/fa";
 import { headerNotification, rightHeaderleft, english, usd } from './headerData'
 import { useState } from 'react';
@@ -9,6 +11,19 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const [isenglishDropDownopen, setisenglishDropDownopen] = useState(false)
   const [isusdDropDownopen, setusdDropDownopen] = useState(false)
+  const [headerNotifications, setHeaderNotifications] = useState([]);
+  const [content, setContent] = useState('');
+  const [newContent, setNewContent] = useState('');
+
+  useEffect(() => {
+    const fetchNotification = async () => {
+      const response = await axios.get('http://localhost:5000/api/v1/products/notification');
+      if (response.data) {
+        setContent(response.data.content);
+      }
+    };
+    fetchNotification();
+  }, []);
 
   const usdRef = useRef(null)
   const engRef = useRef(null)
@@ -20,7 +35,11 @@ const Header = () => {
 
     }
   }
-
+  useEffect(() => {
+    fetch('http://localhost:5000/api/v1/products/headerNotifications')
+      .then((response) => response.json())
+      .then((data) => setHeaderNotifications(data));
+  }, []);
   useEffect(() => {
     document.addEventListener('click', () => OutsideClick(setusdDropDownopen, usdRef))
     document.addEventListener('click', () => OutsideClick(setisenglishDropDownopen, engRef))
@@ -34,10 +53,15 @@ const Header = () => {
     <div className="header">
       <div className="main__header">
         <div className="left__header">
-          {headerNotification.map((headerNotification) => (
-            <span key={headerNotification.id}>{headerNotification.notice}</span>
-          ))}
-        </div>
+      {/* {headerNotifications.map((notification) => (
+        // <span key={notification.id}>{notification.notice}</span>
+        <span>Order processing may be delayed due to system upgrades. Thanks for your patience!</span>
+      ))} */}
+
+      <span>{content}</span>
+
+   
+    </div>
 
         <div className="right__header">
           <div className="right__header__left">

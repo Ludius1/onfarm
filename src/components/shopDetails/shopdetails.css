@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    
 }
 .left__header__text__shopdetails small {
     display: flex;
@@ -485,6 +486,212 @@
     display: flex;
     gap: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .right__shopdetails {
+        display: none;
+        
+    }
+    .left__shopdetails {
+        margin: 20px 0;
+        padding: 20px;
+    }
+    .product__dec__details {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0px;
+
+    }
+    
+
+    .sample__imgg {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        gap: 10px;
+    }
+    .sample__img__img {
+        padding: 2px;
+        width: 70px;
+        cursor: pointer;
+        border-radius: 8px;
+        border: 1px solid rgb(197, 230, 197);
+    }
+    .sample__img__img:hover {
+        border: 1px solid rgb(92, 185, 92);
+    }
+    .tag__details {
+        font-size: 10px;
+
+    }
+    .img__tag__detail {
+     
+    }
+    .img__tag__detail small {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .img__tag__detail small img {
+        width: 100%;
+    }
+    .left__shopdetails {
+        margin: 20px 0;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .top__shopdetails h2 {
+        margin-bottom: 7px;
+        font-size: 20px;
+    }
+    .left__header__text__shopdetails {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    .left__header__text__shopdetails span {
+        font-size: 10px;
+    }
+    .left__header__text__shopdetails span small {
+        font-size: 10px;
+    }
+    .left__header__text__shopdetails small small {
+        font-size: 10px;
+
+    }
+
+
+
+
+
+ 
+    .quantity__sect span {
+        gap: 6px;
+
+    }
+    .quantity__sect span small {
+        gap: 10px;
+        padding: 2px 7px;
+    }
+    .quantity__sect span .add-to-cart  {
+        padding: 10px;
+        font-size: 10px;
+    }
+    .quantity__sect small {
+        gap: 2px;
+    }
+
+    .quantity__sect span small span{
+        font-size: 15px;
+    }
+    .value input {
+        font-size: 15px;
+    }
+
+
+
+    .product__detail__down {
+        padding-top: 20px;
+        width: 100%;
+    }
+    .product__other__detail span {
+        font-size: 14px;
+    }
+    .payment__secure {
+        gap: 10px;
+        margin-top: 30px;
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+    }
+    .payment__secure small{
+        align-items: center;
+        text-align: center;
+    }
+    .payment__secure img{
+        width: 100%;
+    }
+
+
+
+    .left__shopdetails__additional {
+        display: flex;
+        flex-direction: column;
+       
+    }
+    .product__detail__down span small{
+        font-size: 16px;
+    }
+    .left__shopdetails__additional {
+        width: 100%;
+        padding: 20px;
+    }
+    .shop__details__cont .left__shopdetails__additional .top__left__shopdetails__ {
+        gap: 0px;
+        padding-inline: 0px;
+
+    }
+    .top__left__shopdetails__ span, .left__product___details__ small strong, .more__product__details_ span, .products__supreme__qulai span{
+        font-size: 10px;
+    }
+    .top__left__shopdetails__ span small{
+        font-size: 10px;
+    }
+    .product__full__desc, .caseespa, .more__product__details_ small, .products__supreme__qulai small{
+        font-size: 12px;
+    }
+    .left__product___details__, .product__details__detals {
+        display: flex;
+        flex-direction: column;
+    }
+    .shop__details__cont .left__shopdetails__additional .product__full__desc{
+        padding: 10px 0;
+    }
+
+    .product__details__detals small img {
+        width: 100%;
+    }
+    .imgPro span img, iframe {
+        width: 100%;
+    }
+    .play-icon {
+        font-size: 20px;
+    }
+    .down__card-- {
+        display: none;
+    }
+  
+
+
+
+    
+    
+
+
+    
+}
+
 
 
 

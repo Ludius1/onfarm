@@ -58,7 +58,7 @@
     color: #4D5574;
 }
 .faq1 {
-    padding: 50px 0 10px 0;
+    padding: 20px 0 10px 0;
     border-bottom: 1px solid rgb(226, 226, 226);
 }
 .faq1 span{
@@ -70,6 +70,7 @@
     font-size: 18px;
     color: #4D5574;
     font-weight: 600;
+    padding-bottom: 20px;
 }
 .faq1 span small {
     font-size: 24px;
@@ -78,4 +79,33 @@
 }
 .divider {
    
+}
+
+
+@media only screen and (max-width: 600px) {
+    .faqq___ {
+        padding: 20px;
+    }
+    .faq__section {
+        display: grid;
+        grid-template-columns:  1fr;
+        gap: 30px;
+        margin-top: 10px;
+    }
+    .shopping__info {
+        padding:  0px;
+    }
+    .faq1 span h5{
+        font-size: 15px;
+        color: #313b64;
+        font-weight: 800;
+    }
+    .faq1 span small {
+        font-size: 18px;
+    }
+    .faq-content small {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
 }

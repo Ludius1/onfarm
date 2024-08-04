@@ -83,7 +83,7 @@ trspiciatis unde omnis iste natus error sit voluptatem accusantium.</small>
                 <span>
                     <img src={Aboutbac} alt="" />
                     <h4>Who We Are</h4>
-                    <small>Lorem ipsum dolor sit amet consectetur
+                    <small className='onlygh'>Lorem ipsum dolor sit amet consectetur
 adipisicing elit, sed do eiusmod tempor labore
 et dolore dignissimos cumque.</small>
                 </span>
@@ -91,14 +91,14 @@ et dolore dignissimos cumque.</small>
     
                     <span>
                         <img src={Aboutbac1} alt="" />
-                        <h4>Who We Are</h4>
+                        <h4>Our Products</h4>
                         <small>Lorem ipsum dolor sit amet consectetur
 adipisicing elit, sed do eiusmod tempor labore
 et dolore dignissimos cumque.</small>
                     </span>
                     <span>
                         <img src={Aboutbac2} alt="" />
-                        <h4>Our Products
+                        <h4> How We Work
                         </h4>
                         <small>Lorem ipsum dolor sit amet consectetur
 adipisicing elit, sed do eiusmod tempor labore

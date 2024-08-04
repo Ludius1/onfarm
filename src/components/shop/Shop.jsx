@@ -100,7 +100,7 @@ const Shop = () => {
     
   return (
     <div className="shop">
-            <span>Home /<small>Shop</small></span>
+            <span>Home / <small>Shop</small></span>
             <div className="shop__categories">
             {productCategories.map((category) => (
                     <span key={category.id} onClick={() => setSelectedCategory(category.name)}>

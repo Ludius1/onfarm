@@ -258,3 +258,141 @@ form .special--form input{
 .product-checkout-reciept button:hover {
     background-color: #2D2A6E;
 }
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .checkout__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 0px;
+        padding: 20px 0;
+    }
+
+    .top__left__checkot {
+        gap: 10px;
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+    }
+    .top__left__checkot span {
+        font-size: 10px;
+        gap: 5px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .to-logi {
+        font-size: 10px;
+    }
+    .top__left__checkot span Link {
+        font-size: 10px;
+        gap: 5px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+    .top__left__checkot span Link small{
+        font-size: 10px;
+        
+    }
+    
+    
+    
+    .billing {
+        margin: 20px 0;
+
+    }
+    .billing .billing__head{
+        font-size: 18px;
+    }
+    
+    .billing input{
+        width: 100%;
+        padding: 10px;
+    }
+    .billing form span select option{
+        border: none;
+        padding: 10px;
+    }
+    .billing form span  small input {
+        width: 100%;
+        padding: 10px;
+    }
+
+
+
+
+    
+.reciept {
+    padding: 15px;
+    width: 100%;
+}
+
+.product-checkout-reciept  {
+    padding: 19px 0;
+}
+
+.reciept .your-order {
+    font-size: 20px;
+    color: #2D2A6E;
+    padding: 6px 0;
+   
+    
+} 
+
+.left__checkout .reciept .product-checkout-reciept .products-recipt--r .head-reciept-- {
+
+    padding: 12px 0;
+
+}
+
+.head-reciept-- small {
+    font-size: 14px;
+
+}
+.head-reciept-- .sub-total {
+    font-size: 15px;
+
+}
+
+.payment--type {
+    margin-top: 30px;
+}
+
+.MethodTransfer .top__methodTransfer small {
+    font-size: 14px;
+
+}
+.MethodTransfer small {
+    font-size: 11px;
+}
+.top__methodTransfer .reviept--icon small {
+    font-size: 15px;
+
+}
+
+.MethodTransfer {
+
+    gap: 5px;
+}
+.MethodTransfer span{
+    padding: 10px 0;
+}
+.product-checkout-reciept button {
+
+    padding: 10px 20px;
+    font-size: 12px;
+
+}
+form .special--form{
+    gap: 10px;
+}
+
+    
+}

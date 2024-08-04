@@ -69,7 +69,7 @@ const Dashboard = () => {
                 <div className='All__dashboard'>
                     <div className="right__dashboard">
                         {allProducts.map(cardData => {
-                            const imgSrc = cardData.prdDetailsId?.src?.[0]; // Safely access the first image URL
+                            const imgSrc = cardData.prdDetailsId?.src?.[0]; 
 
                             return (
                                 <div key={cardData._id} className="dashboard_post">
@@ -78,7 +78,7 @@ const Dashboard = () => {
                                             {imgSrc ? (
                                                 <img src={imgSrc} alt={cardData.product__name} />
                                             ) : (
-                                                <img src="default-image-url.jpg" alt="Default" /> // Add a default image URL
+                                                <img src="default-image-url.jpg" alt="Default" />
                                             )}
                                         </div>
 

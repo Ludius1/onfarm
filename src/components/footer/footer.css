@@ -240,6 +240,29 @@ input::placeholder {
     .input__sec {
         width: 100%;
     }
+    .input__sec  small input{
+        width: 100%;
+    }
+    .input__sec  small input::placeholder{
+        font-size: 12px;
+    }
+    .sub__btn {
+        background: none;
+        outline: none;
+        border: none;
+        font-size: 13px;
+        font-family: var(--font-family);
+        font-weight: 500;
+        color: white;
+        background-color: #96AE00;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+    .mail__icon {
+        font-size: 18px;
+        margin-top: 7px;
+        color: #B0AFCC;
+    }
     .footer__sec {
         padding: 40px 20px 0px 20px;
         background-color: #2D2A6E;

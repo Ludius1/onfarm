@@ -78,12 +78,13 @@ export const newsData = [
 
 const Latestnews = () => {
   return (
-    <div className="latest__news__sect">
+    <div className="">
+            {/* <div className="latest__news__sect">
     <div className="latest__news">
       <Section_header all__section__head={"Our Latest News"} />
     </div>
     <div className="blog__sectionss">
-      {newsData.slice(0, 4).map((news) => (
+      {newsData.slice(0, 1).map((news) => (
         <Link to={`/news/${news.id}`} key={news.id} className="latestews__cart">
           <img src={news.image} alt="" />
           <div className="text__newss">
@@ -99,6 +100,7 @@ const Latestnews = () => {
     </div>
 
   
+             </div> */}
     </div>
   );
 }

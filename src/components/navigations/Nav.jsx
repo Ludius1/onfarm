@@ -37,6 +37,14 @@ const Nav = () => {
       const [products, setProducts] = useState([]);
   const [cartTotals, setCartTotals] = useState({ subtotal: 0, total: 0 });
   const [reload, setReload] = useState(false);
+  const [openMobileNav, setOpenMobileNav] = useState(false);
+  const [totalProducts, setTotalProducts] = useState(0);
+  
+
+
+  const handleLinkClick = () => {
+    setOpenMobileNav(false);
+  };
   
 
   const { token, user } = useContext(AuthContext);
@@ -52,6 +60,8 @@ const Nav = () => {
       .then((response) => {
         setProducts(response.data.cart);
         calculateTotals(response.data.cart); // Calculate totals when cart items are fetched
+        setTotalProducts(response.data.cart.length); // Set total number of products
+        console.log(response.data.cart);
       })
       .catch((error) => console.error("Error fetching cart items:", error));
   };
@@ -191,22 +201,46 @@ const Nav = () => {
     <>
       <div className="nav__sec">
             <div id='nav' >
-              <span className='navv__menu'><RiMenu4Fill /></span>
+              <span className='navv__menu'>
+                <RiMenu4Fill onClick={() => setOpenMobileNav(true)} />
+                </span>
               <div className="logo__sec">
                  
                   <Link to='/'>  <img src={Logo} alt="" className="logo" /></Link>
               </div>
+              
 
-              <div className="middle__nav">
+             
+              <div>
+      {/* Desktop Navigation */}
+      <div className="middle__nav desktop__nav">
+        <Link className="linkk" to='/' onClick={handleLinkClick}>Home</Link>
+        <Link to='/shop' onClick={handleLinkClick} className='Shop__linkk linkk'>Shop</Link>
+        <Link to='/blog' onClick={handleLinkClick} className='Blog__linkk linkk'>Blog</Link>
+        <Link className="linkk" to='/faqs' onClick={handleLinkClick}>FAQs</Link>
+        <Link className="linkk" to='/about-us' onClick={handleLinkClick}>About Us</Link>
+        <Link className="linkk" to='/contact-us' onClick={handleLinkClick}>Contact Us</Link>
+        <Link className="linkk lonk--mobil" to='/login' onClick={handleLinkClick}>Login / Register</Link>
+        <Link className="linkk lonk--mobil" to='/signup' onClick={handleLinkClick}>Signup</Link>
+      </div>
 
-                <Link to='/'> Home</Link>
-                <Link to='/shop' className='Shop__'> Shop</Link>
-                <Link to='/blog' className='Blog__' > Blog</Link>
-                <Link to='/faqs'> FAQs</Link>
-                <Link to='/about-us'> About Us</Link>
-                <Link to='/contact-us'> Contact Us</Link>
+      {/* Mobile Navigation */}
+      <div className={` mobile__nav ${openMobileNav ? 'showHover' : 'nullHover'}`}>
+        <span className="close__smalll" onClick={handleLinkClick}>
+          <small>CLOSE</small> <small>X</small>
+        </span>
+        <Link className="linkk" to='/' onClick={handleLinkClick}>Home</Link>
+        <Link to='/shop' onClick={handleLinkClick} className='Shop__linkk linkk'>Shop</Link>
+        {/* <Link to='/blog' onClick={handleLinkClick} className='Blog__linkk linkk'>Blog</Link> */}
+        <Link className="linkk" to='/faqs' onClick={handleLinkClick}>FAQs</Link>
+        <Link className="linkk" to='/about-us' onClick={handleLinkClick}>About Us</Link>
+        <Link className="linkk" to='/contact-us' onClick={handleLinkClick}>Contact Us</Link>
+        <Link className="linkk lonk--mobil" to='/login' onClick={handleLinkClick}>Login / Register</Link>
+        <Link className="linkk lonk--mobil" to='/signup' onClick={handleLinkClick}>Signup</Link>
+      </div>
+    </div>
                             
-              </div>
+
             <div className="nav__icon__sec">
                   <span className="nav__icons" onClick={() => setsearchOpen(!issearchOpen)}> <CiSearch /></span>
                   <Link  onClick={() => setuserOption(!userOption)} className="nav__icons"> <CiUser /></Link> 
@@ -214,7 +248,7 @@ const Nav = () => {
                   
                   <span onClick={() => handleclick('displayCart')} className='shoppingbagIcon'>
                     <TbShoppingBagCheck />
-                    <small>5</small></span>
+                    <small>{totalProducts}  </small></span>
             </div>
           </div>
 

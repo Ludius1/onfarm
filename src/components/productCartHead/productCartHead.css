@@ -39,8 +39,32 @@
     }
     .weekly__head  {
         display: flex;
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+       justify-content: space-between;
         margin-top: 20px;
+        align-items: center;
+    }
+    .weekly__head  span {
+        font-family: var(--pri-font-family);
+        font-size: 14px;
+        letter-spacing: -.3px;
+        font-weight: 700;
+        color: #2D2A6E;
+        display: flex;
+        flex-direction: row;
+    }
+    .weekly__head  small{
+        display: flex;
+        align-items: center;
+        color: #79819C;
+        font-size: 12px;
+        font-weight: 400;
+    }
+    .weekly__head  small span{
+        display: flex;
+        align-items: center;
+        color: #79819C;
+        font-size: 12px;
+        font-weight: 400;
     }
 }

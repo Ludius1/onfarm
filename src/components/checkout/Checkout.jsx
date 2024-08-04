@@ -47,7 +47,7 @@ const Checkout = () => {
   return (
     <div className="checkout__section">
         <div className="Signup">
-            <span className="shop__detail__link">Home / <small>Checkout</small></span>
+            <span className="shop__detail__link">Home / <small> Checkout</small></span>
 
             <div className="checkout__container">
                 <div className="left__checkout">
@@ -55,7 +55,7 @@ const Checkout = () => {
                             <small><GoFileDirectoryFill/></small>
                             <span>
                                 Returning customer?
-                                <Link to="/login">Click here <small>to login</small></Link>
+                                <Link to="/login">Click here to login</Link>
                         </span>
                     </div>
 
@@ -140,7 +140,7 @@ const Checkout = () => {
                             <small><GoFileDirectoryFill/></small>
                             <span>
                             Have a coupon? 
-                                <Link to="/login">Click here <small>enter your code</small></Link>
+                                <Link to="/login">Click here enter your code</Link>
                              </span>
                     </div>
 

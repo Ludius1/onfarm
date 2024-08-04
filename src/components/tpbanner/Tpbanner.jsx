@@ -4,7 +4,7 @@ import './tpbanner.css'
 
 const Tpbanner = () => {
   return (
-    <div className="tpbanner__cont">
+    <div className="tpbanner__cont"> 
         <div className="tpbanner">
                  <h4>THE SALAD</h4>
                 <span>Fresh & Natural</span>

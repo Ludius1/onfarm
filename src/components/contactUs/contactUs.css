@@ -1,0 +1,222 @@
+.sgnup__section {
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+}
+.sgnup__section span {
+    padding: 0px 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+}
+.sgnup__section span small{
+    color: white;
+    font-size: 10px;
+  
+}
+.sgnup__section span span{
+    font-family: var(--pri-font-family);
+    font-size: 35px;
+    font-weight: 700;
+}
+.sgnup__section span h5{
+    font-family: var(--pri-font-family);
+    font-size: 13px;
+    font-weight: 500;
+}
+.contact__us-sect {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+.contact__us-sect span img{
+    border-radius: 10px;
+    width: 100%;
+    object-fit: cover;
+    margin: 10px 0;
+}
+.contact__us-sect span h4{
+    font-family: var(--pri-font-family);
+    font-size: 15px;
+    color: #2D2A6E;
+    padding-bottom: 10px;
+}
+.contact__us-sect span small{
+    font-family: var(--pri-font-family);
+    font-size: 15px;
+    font-weight: 600;
+    color: #5c5c5c;
+}
+.map {
+    display: flex;
+    padding: 80px 0;
+    align-items: center;
+    gap: 70px;
+}
+.embed--map {
+    width: 100%;
+}
+.embed--map iframe{
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+.reply--sect {
+    width: 100%;
+
+}
+.reply--sect h4 {
+   font-family: var(--pri-font-family);
+   font-size: 25px;
+   color: #2D2A6E;
+}
+.reply--sect small {
+   font-size: 14px;
+}
+.table--table form {
+    display: flex;
+    gap: 20px;
+}
+.table--table form span  {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.table--table form span input {
+    border: 1px solid #c6c4e08a;
+    border-radius: 40px;
+    padding: 14px 30px;
+    width: 100%;
+}
+.table--table form  textarea {
+    border: 1px solid #c6c4e08a;
+    border-radius: 20px;
+    padding: 14px 30px;
+    width: 100%;
+    height: 180px;
+}
+.table--table form span input::placeholder {
+    font-weight: 500;
+}
+.table--table small {
+    gap: 7px;
+    display: flex;
+    font-family: 500;
+}
+.table--table form textarea::placeholder {
+    font-weight: 500;
+    font-family: var(--font-family);
+    color: #7e7c968a;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .sgnup__section {
+        padding: 30px 0;
+        /* text-align: center; */
+    }
+    .sgnup__section span span{
+    
+        font-size: 20px;
+
+    }
+    .sgnup__section span h5{
+        font-family: var(--pri-font-family);
+        font-size: 12px;
+        text-align: center;
+
+    }
+    .sgnup__section span small{
+        font-size: 8px;
+      
+    }
+    .contact__us-sect {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .contact__us-sect span small{
+        font-size: 11px;
+    }
+    .map {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 50px;
+    }
+    .embed--map iframe{
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .reply--sect h4 {
+        font-size: 20px;
+
+     }
+     .reply--sect small {
+        font-size: 11px;
+     }
+     .table--table form {
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+     }
+     .table--table form span  {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       gap: 10px;
+     }
+     .table--table form span input {
+         border: 1px solid #c6c4e08a;
+         border-radius: 10px;
+         padding: 10px 15px;
+         width: 100%;
+     }
+
+
+
+     .table--table form  textarea {
+        border: 1px solid #c6c4e08a;
+        border-radius: 10px;
+        padding: 10px 15px;
+        width: 100%;
+        height:80px;
+    }
+    .table--table form span input::placeholder {
+        font-weight: 500;
+        font-size: 12px;
+    }
+    .table--table small {
+        gap: 7px;
+        display: flex;
+        font-size: 9px;
+        font-family: 500
+    }
+    .table--table small input{
+        font-size: 9px;
+        font-family: 500;
+        width: 4%;
+    }
+    .table--table form textarea::placeholder {
+        font-weight: 500;
+        font-size: 12px;
+    }
+    .table--table form button {
+        font-weight: 500;
+        font-size: 10px;
+    }
+
+    
+    
+}

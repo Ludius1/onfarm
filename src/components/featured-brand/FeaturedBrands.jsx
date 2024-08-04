@@ -7,6 +7,7 @@ import Featuredproductcard from '../featuredproductcard/Featuredproductcard';
 import Section_header from '../section_header/Section_header';
 import { useState } from 'react';
 import BrandPost from '../featuredproductcard/BrandPost'
+import ProductCartHead from '../productCartHead/ProductCartHead'
 
 const FeaturedBrands = () => {
     const CardBrandFeature = [
@@ -26,7 +27,10 @@ const FeaturedBrands = () => {
 
     return (
         <div className="featuredBrands">
-            <Section_header all__section__head={"Featured Brand"}/>
+            {/* <Section_header all__section__head={"Featured Brand"}/> */}
+            <div className="">
+      <ProductCartHead heading={"Featured Brand"} />
+    </div>
 
             <div className="feauturedBrands__cont">
 

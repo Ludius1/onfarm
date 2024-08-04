@@ -58,7 +58,7 @@ button {
     cursor: pointer;
 }
 .removeicon {
-    font-size: 2https://www.pexels.com/video/ingredients-for-tea-5742198/5px;
+    font-size: 15px;
 }
 .removeProduct img {
     width: 20px;
@@ -153,4 +153,139 @@ button {
 }
 .cart__total span button:hover {
     background-color: #2D2A6E;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .cart__table {
+        padding: 20px 0;
+      }
+      
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      
+      th, td {
+        border: 1px solid rgb(231, 231, 231);
+        padding: 2px;
+        text-align: center;
+      }
+      .table__img {
+          padding:  5px;
+      }
+      .table__name {
+          font-size: 15px;
+      }
+      td img {
+        width: 35px;
+        height: 35px;
+        object-fit: cover;
+      }
+      .table__quantity {
+          width: 10px;
+          /* display: flex;
+          align-items: center;
+          gap: 20px;
+          text-align: center;
+          border: n; */
+      }
+      .table__quantity  small {
+            display: flex;
+          align-items: center;
+          gap: 5px;
+          text-align: center;
+          justify-content: center;  
+      }
+      .changeQuantity {
+          background: none;
+          padding: 1px 4px;
+      }
+      
+      button {
+        margin: 0 1px;
+        font-size: 9px;
+      }
+      
+      .removeProduct img {
+          width: 8px;
+      }
+      .table__name, .table__quantity small span, td, .removeicon {
+        font-size: 10px;
+      }
+      tr {
+        width: 100%;
+    font-size: 9px;
+      }
+      
+      
+      .update__table {
+        
+      
+      }
+      .coupon {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: start;
+          width: 100%;
+      }
+      .coupon form {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          gap: 5px;
+          width: 100%;
+      }
+      .coupon form input{
+          border: 1px solid rgb(204, 204, 204);
+          padding: 5px;
+          border-radius: 4px;
+          width: 150px;
+      }
+      .coupon form button{
+          background-color: #96AE00;
+          padding: 10px 20px;
+          font-size: 9px;
+      }
+      .coupon form input::placeholder{
+          font-weight: 500;
+          font-size: 10px;
+      }
+      .coupon button {
+          background-color: #96AE00;
+          padding: 10px 20px;
+          font-size: 10px;
+
+      }
+      .update_cart__btn {
+        display: none;
+      }
+   
+      .cart__total {
+          margin: 10px 0;
+      }
+      .cart__total h4{
+          font-size: 20px;
+      }
+      .cart__total small span {
+          width: 100%;
+          padding: 10px;
+          font-size: 13px;
+      }
+      .cart__total small span small {
+          font-size: 13px;
+      }
+      .cart__total span button {
+          background-color: #96AE00;
+          padding: 12px 20px;
+          font-size: 10px;
+          width: 100%;
+      }
+
+      
+      
 }

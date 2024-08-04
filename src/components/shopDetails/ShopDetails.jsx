@@ -116,7 +116,7 @@ function ShopDetails() {
       <div className="Signup ShopDetails__">
         <span className="shop__detail__link">
           Home / {product.prdCategoryId?.product__category} /
-          <small>{product.product__name}</small>
+          <small> {product.product__name}</small>
         </span>
 
         <div className="shop__details__cont">
@@ -138,7 +138,7 @@ function ShopDetails() {
                     </span>
                     <small>0{product.ratings} REVIEWS</small>
                   </small>
-                  <span>
+                  <span >
                     SKU:<small>{sku} </small>
                   </span>
                 </span>
@@ -173,8 +173,7 @@ function ShopDetails() {
                   <span className="dec__produc">
                     <ul>
                       <li>{product.featurePro}</li>
-                      {/* <li>Vegan & Allergy friendly</li>
-                                            <li>Smooth, velvety dairy free cheese sauce</li> */}
+              
                     </ul>
                   </span>
 
@@ -239,7 +238,7 @@ function ShopDetails() {
               </div>
 
               <div className="product__full__desc">
-                <div
+                <div className=""
                   dangerouslySetInnerHTML={{
                     __html: product.productDetailsNEW,
                   }}
@@ -249,7 +248,7 @@ function ShopDetails() {
               <div className="product__details__detals">
                 <span className="left__product___details__">
                   <small>
-                    PRODUCT ELEMENTS
+                    <strong>PRODUCT ELEMENTS</strong>
                     <span className="pdppd">
                       {/* <small>Material: <span>Plastic, Wood</span></small>
                                             <small>Legs: <span> Lacquered oak and black painted oak</span></small>
@@ -260,7 +259,7 @@ function ShopDetails() {
                                                 fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
                                                 sequi nesciunt.</small> */}
                       <small>
-                        <div
+                        <div className="caseespa"
                           dangerouslySetInnerHTML={{
                             __html: product.productElementDetails,
                           }}

@@ -179,4 +179,137 @@
     width: 95%;
     padding: 10px 0;
   }
+
+
+  
+
+
+  @media only screen and (max-width: 600px) {
+    .main-abouyts {
+      display: grid;
+      padding: 20px;
+      grid-template-columns: 1fr;
+    }
+    .AboutImg {
+      width: 100%;
+    }
+
+
+    .right-about h2 {
+      font-size: 25px;
+      font-weight: 700;
+      line-height:30px;
+
+    }
+
+  
+    .right-about {
+      padding-right:0px;
+    }
+  
+    .rrr {
+      font-size: 13px;
+
+
+    }
+  
+    .list-oco {
+      font-size: 16px;
+      display: flex;
+      padding: 6px 0;
+      gap: 5px;
+
+    }
+    .list-oco span {
+      font-size: 15px;
+      padding: 1px;
+    }
+    .list-oco h6 {
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .onsome {
+      padding: 0px 0;
+    }
+   .ioio {
+      padding: 10px 0;
+    }
+    .about--middle {
+      display: grid;
+      grid-template-columns:  1fr;
+      padding: 10px 0px;
+    }
+    .about--middle section{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px ;
+    }
+    .about--middle section h4{
+      font-size: 15px;
+      color: #2D2A6E;
+      font-family: var(--pri-font-family);
+      font-weight: 700;
+    }
+    .about--middle section small{
+      font-size: 15px;
+      color: #4D5574;
+      font-weight: 400;
+      padding: 10px 0;
+      line-height: 20px;
+    }
+
+
+
+    .middle-back h2{
+      font-size: 20px;
+    }
+    .middle-back small{
+      color: #4D5574;
+      font-weight: 400;
+      font-size: 15px;
+    }
+  
+  .list-o- {
+      padding: 50px 20px;
+  }
+    .inside--list {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+        padding: 20px 0;
+        gap: 20px;
+    }
+    .list-o- span {
+    
+
+    }
+    .list-o- h4 {
+      font-size: 20px;
+      color: #2D2A6E;
+      font-family: var(--pri-font-family);
+      font-weight: 700;
+      padding: 0px 0;
+    }
+    .list-o- small {
+      font-size: 10px;
+      color: #2D2A6E;
+      font-weight: 400;
+      padding: 0px 0px;
+      
+    }
+    .onlygh {
+      line-height: 15px;
+    }
+    .list-o- img {
+      width: 95%;
+      padding: 10px 0;
+    }
+  
+  
+    
+  
+  
+  }
   

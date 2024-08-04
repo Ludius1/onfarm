@@ -23,6 +23,7 @@ const Cart = () => {
       .then((response) => {
         setProducts(response.data.cart);
         calculateTotals(response.data.cart); // Calculate totals when cart items are fetched
+        console.log(response.data.cart)
       })
       .catch((error) => console.error("Error fetching cart items:", error));
   };
@@ -92,63 +93,67 @@ const Cart = () => {
           Home / <small>Cart</small>
         </span>
 
-        <div className="cart__table">
-          <table>
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Product Name</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
-            <tbody>
-              {products?.map((product) => (
-                <tr key={product._id}>
-                  <td className="table__img">
-                    <img
-                      src={product?.product?.productId?.prdDetailsId?.src[0]}
-                      alt={product?.product?.productId?.product__name}
-                      width="50"
-                    />
-                  </td>
-                  <td className="table__name">
-                    {product.product?.productId?.product__name}
-                  </td>
-                  <td>${product.product?.productId?.price}</td>
-                  <td className="table__quantity">
-                    <small>
-                      <button
-                        className="changeQuantity"
-                        onClick={() => decreaseQuantity(product.product?.productId?._id, product?.product?.quantity)}
-                      >
-                        -
-                      </button>
-                      <span>{product?.product?.quantity}</span>
-                      <button
-                        className="changeQuantity"
-                        onClick={() => increaseQuantity(product.product?.productId?._id, product?.product?.quantity)}
-                      >
-                        +
-                      </button>
-                    </small>
-                  </td>
-                  <td>${product.product?.productId?.price * product?.product?.quantity}</td>
-                  <td>
-                    <button
-                      className="removeProduct"
-                      onClick={() => removeProduct(product.product?.productId?._id)}
-                    >
-                      <TiTimes className="removeicon" />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+       <div className="cart__table__wrapper">
+  <div className="cart__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product Name</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        {products?.map((product) => (
+          <tr key={product._id}>
+            <td className="table__img">
+              <img
+                src={product?.product?.productId?.prdDetailsId?.src[0]}
+                alt={product?.product?.productId?.product__name}
+                
+              />
+            </td>
+            <td className="table__name">
+              {product.product?.productId?.product__name}
+            </td>
+            <td>${product.product?.productId?.price}</td>
+            <td className="table__quantity">
+              <small>
+                <button
+                  className="changeQuantity"
+                  onClick={() => decreaseQuantity(product.product?.productId?._id, product?.product?.quantity)}
+                >
+                  -
+                </button>
+                <span>{product?.product?.quantity}</span>
+                <button
+                  className="changeQuantity"
+                  onClick={() => increaseQuantity(product.product?.productId?._id, product?.product?.quantity)}
+                >
+                  +
+                </button>
+              </small>
+            </td>
+            
+            <td>${product.product?.productId?.price * product?.product?.quantity}</td>
+            <td>
+              <button
+                className="removeProduct"
+                onClick={() => removeProduct(product.product?.productId?._id)}
+              >
+                <TiTimes className="removeicon" />
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
         <div className="update__table">
           <div className="coupon">
             <form action="">

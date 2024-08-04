@@ -28,7 +28,7 @@ const FeaturedBrands = () => {
     return (
         <div className="featuredBrands">
             {/* <Section_header all__section__head={"Featured Brand"}/> */}
-            <div className="">
+            <div className="weekly">
       <ProductCartHead heading={"Featured Brand"} />
     </div>
 

@@ -65,7 +65,7 @@ const LoginPage = () => {
 
   return (
     <div className="Signup">
-    <span>Home /<small>Login</small></span>
+    <span>Home / <small>Login</small></span>
 
     <div className="signup__cont">
        <div className="signup__area">

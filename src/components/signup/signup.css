@@ -134,7 +134,10 @@ form button:hover {
 
 @media only screen and (max-width: 600px) {
     .Signup {
-        padding: 40px 20px;
+        padding: 20px;
+    }
+    .Signup span, .Signup span small {
+        font-size: 12px;
     }
     
     .signup__area {

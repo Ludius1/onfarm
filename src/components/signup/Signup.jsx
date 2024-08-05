@@ -59,7 +59,7 @@ const Signup = () => {
   };
   return (
     <div className="Signup">
-             <span>Home /<small>Signup</small></span>
+             <span>Home / <small>Signup</small></span>
 
              <div className="signup__cont">
                 <div className="signup__area">

@@ -5,6 +5,7 @@ import Logo from  '../../../src/assets/Logo.png'
 import { navlist, navOtherItems } from './navlist'
 import { TbShoppingBagCheck } from "react-icons/tb";
 import { FaChevronDown } from "react-icons/fa";
+import { TiTimes } from "react-icons/ti";
 import { CiUser } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { Link, useNavigate } from 'react-router-dom'
@@ -12,13 +13,16 @@ import { useEffect } from 'react';
 import HeroSlide2 from '../../assets/slider3-2-mobile.jpg'
 import { MdOutlineCancel } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
-import { RiMenu4Fill } from "react-icons/ri";
+import { RiLoginCircleLine, RiMenu4Fill } from "react-icons/ri";
 import Cart from './../../assets/cart.jpg'
 import CancelIcon from '../../assets/cancel-icon.svg'
 import { LiaTimesSolid } from "react-icons/lia";
 import axios from "axios";
 import { toast } from 'sonner';
 import { useRef } from 'react'
+import { FiUser } from "react-icons/fi";
+import { FaRegUser } from "react-icons/fa6";
+import { PiUserCirclePlus } from "react-icons/pi";
 
 const Nav = () => {
       // const [isMouseOver, setIsMouseOver] = useState(false)
@@ -210,8 +214,6 @@ const Nav = () => {
               </div>
               
 
-             
-              <div>
       {/* Desktop Navigation */}
       <div className="middle__nav desktop__nav">
         <Link className="linkk" to='/' onClick={handleLinkClick}>Home</Link>
@@ -227,18 +229,20 @@ const Nav = () => {
       {/* Mobile Navigation */}
       <div className={` mobile__nav ${openMobileNav ? 'showHover' : 'nullHover'}`}>
         <span className="close__smalll" onClick={handleLinkClick}>
-          <small>CLOSE</small> <small>X</small>
+          <small>CLOSE</small> 
+          <span><TiTimes className="tikmtre" /></span>
         </span>
-        <Link className="linkk" to='/' onClick={handleLinkClick}>Home</Link>
+        <Link className="linkk" to='/' onClick={handleLinkClick}> Home</Link>
         <Link to='/shop' onClick={handleLinkClick} className='Shop__linkk linkk'>Shop</Link>
         {/* <Link to='/blog' onClick={handleLinkClick} className='Blog__linkk linkk'>Blog</Link> */}
         <Link className="linkk" to='/faqs' onClick={handleLinkClick}>FAQs</Link>
         <Link className="linkk" to='/about-us' onClick={handleLinkClick}>About Us</Link>
         <Link className="linkk" to='/contact-us' onClick={handleLinkClick}>Contact Us</Link>
-        <Link className="linkk lonk--mobil" to='/login' onClick={handleLinkClick}>Login / Register</Link>
-        <Link className="linkk lonk--mobil" to='/signup' onClick={handleLinkClick}>Signup</Link>
+        <Link className="linkk lonk--mobil ijia" to='/login' onClick={handleLinkClick}> <span>< FaRegUser className="tikmtre"/></span> Login</Link>
+        <Link className="linkk lonk--mobil ijia" to='/signup' onClick={handleLinkClick}> <span>< PiUserCirclePlus className="tikmtres"/></span> <span>Signup</span></Link>
+        
       </div>
-    </div>
+    
                             
 
             <div className="nav__icon__sec">

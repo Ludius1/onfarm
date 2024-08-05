@@ -285,6 +285,7 @@
     color: #11102b;
     font-family: var(--pri-font-family);
 }
+
 .cancel__cart img{
     color: #96AE00;
     cursor: pointer;
@@ -443,11 +444,34 @@
     .nav__icons {
         display: none;
     }
-    .close__smalll {
+    .nav__sec {
+        
+        
+    }
+    .mobile__nav span {
         display: flex;
+        align-items: center;
+        gap: 5 px;
+        text-align: center;
+        justify-content: center;
+    }
+    .ijia {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .tikmtre {
+        font-size: 18px;
+    }
+    .tikmtres {
+        font-size: 22px;
     }
     .mobile__nav {
-        display: flex; /* Hide mobile nav by default */
+        display: flex; 
+        ;/* Hide mobile nav by default */
+    }
+    .mobile__nav span small{
+        font-size: 12px;
     }
     .inside--middle-nav {
     
@@ -518,7 +542,7 @@
         color: white;
         margin: 0 60px 0px 30px;
         width: 70%;
-        padding-top: 5px;
+        padding: 4px 0;
     }
     .inside--middle-nav {
         

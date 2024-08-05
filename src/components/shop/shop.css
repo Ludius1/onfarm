@@ -161,11 +161,15 @@
   
   @media only screen and (max-width: 600px) {
     .shop {
-        padding: 40px 20px;
+        padding:20px;
+    }
+    .shop span, .shop span small{
+        font-size: 12px;
     }
 
     .shop__categories {
         gap: 20px;
+        
     }
     .shop__categories span{
         padding: 10px 25px;

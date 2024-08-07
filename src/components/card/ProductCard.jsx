@@ -46,7 +46,7 @@ const ProductCard = ({cardData, width, padding, backgroundColor,rating, borderRa
         console.log(token);
         axios
           .post(
-            "http://localhost:5000/api/v1/products/cart/add",
+            "https://neworfarm-1.onrender.com/products/cart/add",
             { productId: product._id},
             { headers: { Authorization: `Bearer ${token}` } }
           )

@@ -23,7 +23,7 @@ const Checkout = () => {
 
   const getCartItems = () => {
     axios
-      .get("http://localhost:5000/api/v1/products/cart", { headers })
+      .get("https://neworfarm-1.onrender.com/products/cart", { headers })
       .then((response) => {
         setProducts(response.data.cart);
         calculateTotals(response.data.cart); // Calculate totals when cart items are fetched

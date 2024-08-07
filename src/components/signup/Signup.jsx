@@ -39,7 +39,7 @@ const Signup = () => {
     console.log(userData)
     setIsLoading(true)
     try {
-       const response = await axios.post('http://localhost:5000/api/v1/user/signup', userData)
+       const response = await axios.post('https://neworfarm-1.onrender.com/user/signup', userData)
         
        if (response.status === 200) {
         console.log(response)

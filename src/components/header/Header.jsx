@@ -17,7 +17,7 @@ const Header = () => {
 
   useEffect(() => {
     const fetchNotification = async () => {
-      const response = await axios.get('http://localhost:5000/api/v1/products/notification');
+      const response = await axios.get('https://neworfarm-1.onrender.com/products/notification');
       if (response.data) {
         setContent(response.data.content);
       }
@@ -36,7 +36,7 @@ const Header = () => {
     }
   }
   useEffect(() => {
-    fetch('http://localhost:5000/api/v1/products/headerNotifications')
+    fetch('https://neworfarm-1.onrender.com/products/headerNotifications')
       .then((response) => response.json())
       .then((data) => setHeaderNotifications(data));
   }, []);

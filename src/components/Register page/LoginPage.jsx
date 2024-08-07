@@ -42,7 +42,7 @@ const LoginPage = () => {
         console.log(userData)
         setIsLoading(true)
         try {
-           const response = await axios.post('http://localhost:5000/api/v1/user/login', userData)
+           const response = await axios.post('https://neworfarm-1.onrender.com/user/login', userData)
             
            if (response.status === 200) {
             console.log(response)

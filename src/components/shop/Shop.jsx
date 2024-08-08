@@ -65,7 +65,7 @@ const Shop = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('https://neworfarm-1.onrender.com/products/');
+                const response = await axios.get('http://localhost:5000/api/v1/products/');
                 console.log(response)
                 setProducts(response.data);
             } catch (error) {
@@ -79,11 +79,11 @@ const Shop = () => {
     const fetchProductsByCategory = async (category) => {
         try {
             if (category) {
-                const response = await axios.get(`https://neworfarm-1.onrender.com/products/categories/${category}`);
+                const response = await axios.get(`http://localhost:5000/api/v1/products/categories/${category}`);
                 setProducts(response.data);
               
             } else {
-                const response = await axios.get('https://neworfarm-1.onrender.com/products/');
+                const response = await axios.get('http://localhost:5000/api/v1/products/');
                 setProducts(response.data);
            
             }
@@ -208,8 +208,10 @@ const Shop = () => {
             })}
         </span>
     ) : (
-        <span>No Products found</span>
+        <span className=''>No Products found</span>
     )}
+
+
         
             
              <span className='shop__slider'>
@@ -220,6 +222,8 @@ const Shop = () => {
             </span> 
             
     </div>
+
+
   )
 }
 

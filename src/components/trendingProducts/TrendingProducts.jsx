@@ -13,7 +13,7 @@ const TrendingProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('https://neworfarm-1.onrender.com/products/weekly-products');
+            const response = await axios.get('http://localhost:5000/api/v1/products/weekly-products');
             console.log(response)
             setProducts(response.data);
         } catch (error) {

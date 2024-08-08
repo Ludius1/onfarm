@@ -288,13 +288,51 @@
     .card {
         width: 100%;
     }
-    .right__positioning   {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        gap: 8px;
-        position: absolute;
-        left: 270px;
+    .product__details .product__category {
+        font-size: 12px;
     }
+    .card small {
+        font-size: 12px;
+    }
+    .grading {
+        font-size: 12px;
+    }
+    .product__name {
+        font-size: 15px;
+        line-height: 16px;
+    }
+    .price strong {
+        font-size: 15px;
+    }
+    .price .old__price {
+        font-size: 13px;
+    }
+    .left__positioning .desc {
+        background-color: #12b7ce;
+        color: white;
+        font-size: 11px;
+        display: flex;
+    }
+    .left__positioning .badge {
+        background-color: #facfd4;
+        color: #ea0d42;
+        font-size: 10px;
+        font-weight: 500;
+        display: flex;
+    }
+    .sold {
+        font-weight: 400;
+        color: #4D5574;
+    }
+    .hover small {
+        color: #79819C;
+        font-size: 13px;
+    }
+    .right__positioning span:hover {
+        background-color: #a1b903;
+        color: white;
+    }
+
+   
 }
 

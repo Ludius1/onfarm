@@ -51,7 +51,7 @@ function ShopDetails() {
     console.log(token);
     axios
       .post(
-        "https://neworfarm-1.onrender.com/products/cart/add",
+        "http://localhost:5000/api/v1/products/cart/add",
         { productId: product._id, quantity: countOrder },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -93,7 +93,7 @@ function ShopDetails() {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `https://neworfarm-1.onrender.com/products/${id}`
+          `http://localhost:5000/api/v1/products/${id}`
         );
         console.log(response);
         setProduct(response.data);

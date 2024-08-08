@@ -38,7 +38,7 @@ const UserProfile = () => {
 
     const fetchUserData = async () => {
         try {
-            const response = await axios.get('https://neworfarm-1.onrender.com/user/getuser', {
+            const response = await axios.get('http://localhost:5000/api/v1/user/getuser', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}` // retrieve token from localStorage or wherever you store it
                 }

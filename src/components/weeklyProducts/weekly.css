@@ -4,9 +4,14 @@
   
   .card__viewproducts {
     position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
-    overflow: hidden;
+    overflow-x: scroll;
     padding: 10px 0;
+  }
+  .card__viewproducts::-webkit-scrollbar {
+    display: none;
   }
   
   .carousel__item {
@@ -22,6 +27,7 @@
   .card__viewproducts {
     display: flex;
     flex-direction: row;
+    
   }
   
   .carousel .slide {
@@ -39,4 +45,16 @@
   .carousel .control-arrow:hover {
     opacity: 1;
   }
+
+
+
+
+
+  
+@media only screen and (max-width: 600px) {
+      
+  .card__viewproducts {
+    grid-template-columns: 1fr;
+  }
+}
   

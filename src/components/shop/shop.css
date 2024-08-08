@@ -143,6 +143,12 @@
     border-radius: 100%;
     color: white; */
 }
+.no-prod {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+}
 
 
 
@@ -169,6 +175,11 @@
 
     .shop__categories {
         gap: 20px;
+        overflow-x: scroll;
+        
+    }
+    .shop__categories::-webkit-scrollbar {
+        display: none;
         
     }
     .shop__categories span{
@@ -199,8 +210,8 @@
     }
     .shop__card__style__one {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
         margin-bottom: 50px; 
     }
    
@@ -219,6 +230,11 @@
         display: inline-block;
         border-radius: 100%;
         color: white; */
+    }
+    .sorting__option {
+        position: absolute;
+        bottom: -120px;
+
     }
     
     

@@ -12,7 +12,7 @@ const Weekly = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://neworfarm-1.onrender.com/products/weekly-products');
+        const response = await axios.get('http://localhost:5000/api/v1/products/weekly-products');
         setProducts(response.data);
       } catch (error) {
         console.error('Failed to fetch products:', error);
@@ -25,7 +25,7 @@ const Weekly = () => {
   return (
     <div className="weekly">
       <div className="">
-        <ProductCartHead heading={"Weekly Food Offers"} />
+        <ProductCartHead heading={"Weekly Food Offers "} />
       </div>
       <div className="card__viewproducts">
     
@@ -58,7 +58,7 @@ const Weekly = () => {
                   product__section={product__section}
                   old__price={old__price}
                   desc={desc}
-                  product__name={product__name}
+                  product__name={product__name} 
                   shop={shop}
                   NumberLeft={NumberLeft}
                   price={price}

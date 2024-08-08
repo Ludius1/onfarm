@@ -19,7 +19,7 @@ const Cart = () => {
 
   const getCartItems = () => {
     axios
-      .get("https://neworfarm-1.onrender.com/products/cart", { headers })
+      .get("http://localhost:5000/api/v1/products/cart", { headers })
       .then((response) => {
         setProducts(response.data.cart);
         calculateTotals(response.data.cart); // Calculate totals when cart items are fetched
@@ -30,7 +30,7 @@ const Cart = () => {
 
   const removeProduct = (productId) => {
     axios
-      .delete(`https://neworfarm-1.onrender.com/products/cart/${productId}`, { headers })
+      .delete(`http://localhost:5000/api/v1/products/cart/${productId}`, { headers })
       .then((response) => {
         toast.success(response.data.message);
         setReload(!reload);

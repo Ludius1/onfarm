@@ -81,7 +81,7 @@ const CreatePost = () => {
 
   const uploadImage = async () => {
     try {
-      const response = await axios.post('https://neworfarm-1.onrender.com/products/upload-product-images-desc', productImgLeft);
+      const response = await axios.post('http://localhost:5000/api/v1/products/upload-product-images-desc', productImgLeft);
       console.log(response)
       const imageUrl = response.data?.data?.secure_url;
       console.log(imageUrl)
@@ -98,7 +98,7 @@ const CreatePost = () => {
   const uploadMainProductImage = async () => {
     try {
       setIsPending(true)
-      const response = await axios.post('https://neworfarm-1.onrender.com/products/upload-multiple-product-images', src);
+      const response = await axios.post('http://localhost:5000/api/v1/products/upload-multiple-product-images', src);
 
       console.log("line 69",response)
       const imageUrl = response.data?.data?.map(item => item);
@@ -145,7 +145,7 @@ const CreatePost = () => {
       const images = await uploadMainProductImage();
       console.log(images)
       console.log(postDetails)  
-      const response = await axios.post('https://neworfarm-1.onrender.com/products/', {...postDetails, src:images, productImgLeft: imgUrl});
+      const response = await axios.post('http://localhost:5000/api/v1/products/', {...postDetails, src:images, productImgLeft: imgUrl});
       toast.success(response.data.msg);
       setIsPending(false);
     } catch (err) {

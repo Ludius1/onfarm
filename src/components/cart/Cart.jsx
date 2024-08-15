@@ -66,6 +66,7 @@ const Cart = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => {
+        console.log("Cart updated:", response.data);
         toast.success(response.data.msg);
         setReload(!reload);
       })
@@ -76,8 +77,11 @@ const Cart = () => {
   };
 
   const increaseQuantity = (id, quantity) => {
+    // console.log("Product ID:", id);
+    // console.log("Current Quantity:", quantity);
     updateCart(id, quantity + 1);
   };
+  
 
   const decreaseQuantity = (id, quantity) => {
     if (quantity > 1) {

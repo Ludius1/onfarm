@@ -8,18 +8,19 @@ const Dashboard = () => {
     const [allProducts, setAllProducts] = useState([]);
     const [content, setContent] = useState('');
     const [newContent, setNewContent] = useState('');
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   
   
   
     const updateNotification = async () => {
-      const response = await axios.post('http://localhost:5000/api/v1/products/notification', { content: newContent });
+      const response = await axios.post(`${API_BASE_URL}/api/v1/products/notification`, { content: newContent });
       setContent(response.data.content);
     };
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/v1/products/');
+                const response = await axios.get(`${API_BASE_URL}/api/v1/products/`);
                 setAllProducts(response.data);
             } catch (error) {
                 console.error('Failed to fetch products:', error);
@@ -31,7 +32,7 @@ const Dashboard = () => {
 
     const handleDelete = async (productId) => {
         try {
-            await axios.delete(`http://localhost:5000/api/v1/products/${productId}`);
+            await axios.delete(`${API_BASE_URL}/api/v1/products/${productId}`);
             setAllProducts(allProducts.filter(product => product._id !== productId));
             toast.success('Product deleted successfully');
         } catch (error) {

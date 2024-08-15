@@ -17,6 +17,7 @@ import Cart from '../cart/Cart';
 
 
 const Signup = () => {
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
     window.scrollTo(0,0)
    const [userData, setUserData] = useState({
     firstName: '',
@@ -39,7 +40,7 @@ const Signup = () => {
     console.log(userData)
     setIsLoading(true)
     try {
-       const response = await axios.post('http://localhost:5000/api/v1/user/signup', userData)
+       const response = await axios.post(`${API_BASE_URL}/api/v1/user/signup`, userData)
         
        if (response.status === 200) {
         console.log(response)

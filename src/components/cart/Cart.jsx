@@ -12,6 +12,7 @@ const Cart = () => {
   const [reload, setReload] = useState(false);
 
   const { token, user } = useContext(AuthContext);
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const headers = {
     authorization: `Bearer ${token}`,
@@ -19,7 +20,7 @@ const Cart = () => {
 
   const getCartItems = () => {
     axios
-      .get("http://localhost:5000/api/v1/products/cart", { headers })
+      .get(`${API_BASE_URL}/api/v1/products/cart`, { headers })
       .then((response) => {
         setProducts(response.data.cart);
         calculateTotals(response.data.cart); // Calculate totals when cart items are fetched
@@ -30,7 +31,7 @@ const Cart = () => {
 
   const removeProduct = (productId) => {
     axios
-      .delete(`http://localhost:5000/api/v1/products/cart/${productId}`, { headers })
+      .delete(`${API_BASE_URL}/api/v1/products/cart/${productId}`, { headers })
       .then((response) => {
         toast.success(response.data.message);
         setReload(!reload);
@@ -60,7 +61,7 @@ const Cart = () => {
   const updateCart = (id, quantity) => {
     axios
       .post(
-        "http://localhost:5000/api/v1/products/cart/add",
+          `${API_BASE_URL}/api/v1/products/cart/add`,
         { productId: id, quantity: quantity },
         { headers: { Authorization: `Bearer ${token}` } }
       )

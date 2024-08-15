@@ -8,11 +8,15 @@ import ProductCartHead from '../productCartHead/ProductCartHead';
 
 const Weekly = () => {
   const [products, setProducts] = useState([]);
+    // const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '${API_BASE_URL}';
+  // console.log('API_BASE_URL:', (API_BASE_URL) )
+  // console.log('hjgxsjch ch\  lorrem10  Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, autem.')
+
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/products/weekly-products');
+        const response = await axios.get(`${API_BASE_URL}/api/v1/products/weekly-products`);
         setProducts(response.data);
       } catch (error) {
         console.error('Failed to fetch products:', error);

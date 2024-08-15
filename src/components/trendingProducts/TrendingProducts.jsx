@@ -9,11 +9,12 @@ import ProductCard from '../card/ProductCard'
 
 const TrendingProducts = () => {
   const [products, setProducts] = useState([])
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/v1/products/weekly-products');
+            const response = await axios.get(`${API_BASE_URL}/api/v1/products/weekly-products`);
             console.log(response)
             setProducts(response.data);
         } catch (error) {

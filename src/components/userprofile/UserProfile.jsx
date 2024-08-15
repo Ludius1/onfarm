@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from "react";
+import { AuthContext } from "../../context/authContext";
 import FeaturedBrand1 from '../../assets/brand-thumb-1.png';
 import Vscode from '../../assets/vscode.png';
 import { FaEdit } from 'react-icons/fa';
@@ -28,7 +29,8 @@ const UserProfile = () => {
         newPassword: '',
         confirmNewPassword: ''
     });
-    const [formAvatar, setFormAvatar] = useState({ avatar: null  });
+    const [featuredBrand, setFeaturedBrand] = useState(FeaturedBrand1);
+    const [formAvatar, setFormAvatar] = useState({ avatar: null });
     const [isLoading, setIsLoading] = useState(false);
 
     // Fetch user data on component mount
@@ -36,13 +38,16 @@ const UserProfile = () => {
         fetchUserData();
     }, []);
 
+    const { token, user, logout } = useContext(AuthContext);
+
+    const headers = {
+        authorization: `Bearer ${token}`,
+    };
+
+
     const fetchUserData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/v1/user/getuser', {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}` // retrieve token from localStorage or wherever you store it
-                }
-            });
+            const response = await axios.get('${API_BASE_URL}/user/getuser', { headers });
             setFormData({
                 firstName: response.data.firstName,
                 lastName: response.data.lastName,
@@ -55,14 +60,10 @@ const UserProfile = () => {
     };
 
     const handleChange = (e) => {
-        const { name, value, files } = e.target;
-        if (name === 'avatar' && files) {
-            setFormAvatar({ avatar: files[0] });
-        } else {
-            setFormData(prevState => ({
-                ...prevState,
-                [name]: value
-            }));
+        const file = event.target.files[0];
+        if (file) {
+            setFormAvatar({ avatar: file });
+            setFeaturedBrand(URL.createObjectURL(file));
         }
     };
 
@@ -74,7 +75,7 @@ const UserProfile = () => {
             if (!token) {
                 throw new Error('No token found');
             }
-            
+
             const formDataWithAvatar = new FormData();
             formDataWithAvatar.append('avatar', formAvatar.avatar);
             formDataWithAvatar.append('firstName', formData.firstName);
@@ -85,12 +86,7 @@ const UserProfile = () => {
             formDataWithAvatar.append('newPassword', formData.newPassword);
             formDataWithAvatar.append('confirmNewPassword', formData.confirmNewPassword);
 
-            // const response = await axios.patch('http://localhost:5000/api/v1/user/update-user', formDataWithAvatar, {
-            //     headers: {
-            //         Authorization: `Bearer ${token}`,
-            //         'Content-Type': 'multipart/form-data'
-            //     }
-            // });
+            const response = await axios.patch('${API_BASE_URL}/user/update-user', formDataWithAvatar, { headers });
 
             if (response.status === 200) {
                 console.log(response);
@@ -113,22 +109,26 @@ const UserProfile = () => {
             <div className="user--profile">
                 <h4>Personal details</h4>
                 <div className="profile--">
-                    <div className="persosnal__details">
-                        <div className="profile__avataer">
-                            <img src={FeaturedBrand1} alt="" />
-                        </div>
+                <div className="persosnal__details">
+            <div className="profile__avataer">
+            {formAvatar.avatar && (
+                <img src={featuredBrand} alt="Featured Brand" />
+            )}
+            </div>
 
-                        <form action="" className="fomm__profile">
-                            <div className="avatar__form">
-                                <label htmlFor="avatar"><FaEdit /></label>
-                                <input hidden type="file" name="avatar" id="avatar" onChange={handleChange} accept="image/png, image/jpg, image/jpeg" />
-                                {formAvatar.avatar && (
-                                    <img src={URL.createObjectURL(formAvatar.avatar)} alt="Avatar Preview" />
-                                )}
-                            </div>
-                        </form>
-                        <h1>Ludius Admin</h1>
-                    </div>
+            <form action="" className="fomm__profile">
+                <div className="avatar__form">
+                    <label htmlFor="avatar"><FaEdit /></label>
+                    <input hidden type="file" name="avatar" id="avatar" onChange={handleChange} accept="image/png, image/jpg, image/jpeg" />
+                    {/* {formAvatar.avatar && (
+                        <img src={URL.createObjectURL(formAvatar.avatar)} alt="Avatar Preview" />
+                    )} */}
+                </div>
+                <h1>
+                    {formData.firstName.charAt(0).toUpperCase() + formData.firstName.slice(1)} {formData.lastName.charAt(0).toUpperCase() + formData.lastName.slice(1)}
+                </h1>
+            </form>
+        </div>
 
                     <form action="" onSubmit={handleSubmit} className="user__profile__input_-form">
                         <span className="each__field">

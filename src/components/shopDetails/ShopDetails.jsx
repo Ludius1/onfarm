@@ -45,13 +45,14 @@ function ShopDetails() {
   ];
   const [selectedImage, setSelectedImage] = useState(images[0].full);
   const navigate = useNavigate();
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const handleAddToCart = () => {
     // const token = localStorage.getItem("authToken"); // Get the token from local storage or wherever it is stored
     console.log(token);
     axios
       .post(
-        "http://localhost:5000/api/v1/products/cart/add",
+        `${API_BASE_URL}/api/v1/products/cart/add`,
         { productId: product._id, quantity: countOrder },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -93,7 +94,7 @@ function ShopDetails() {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/v1/products/${id}`
+          `${API_BASE_URL}/api/v1/products/${id}`
         );
         console.log(response);
         setProduct(response.data);

@@ -14,6 +14,7 @@ const Checkout = () => {
     const [products, setProducts] = useState([]);
   const [cartTotals, setCartTotals] = useState({ subtotal: 0, total: 0 });
   const [reload, setReload] = useState(false);
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const { token, user } = useContext(AuthContext);
 
@@ -23,7 +24,7 @@ const Checkout = () => {
 
   const getCartItems = () => {
     axios
-      .get("http://localhost:5000/api/v1/products/cart", { headers })
+      .get(`${API_BASE_URL}/api/v1/products/cart`, { headers })
       .then((response) => {
         setProducts(response.data.cart);
         calculateTotals(response.data.cart); // Calculate totals when cart items are fetched

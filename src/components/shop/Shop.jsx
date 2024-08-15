@@ -38,6 +38,7 @@ const Shop = () => {
     const [selectedOption, setSelectedOption] = useState('Default sorting');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [productsFoundCount, setProductsFoundCount] = useState(0);
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   
     const handleOptionClick = (option) => {
       setSelectedOption(option);
@@ -65,7 +66,7 @@ const Shop = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/v1/products/');
+                const response = await axios.get(`${API_BASE_URL}/api/v1/products/`);
                 console.log(response)
                 setProducts(response.data);
             } catch (error) {
@@ -79,11 +80,11 @@ const Shop = () => {
     const fetchProductsByCategory = async (category) => {
         try {
             if (category) {
-                const response = await axios.get(`http://localhost:5000/api/v1/products/categories/${category}`);
+                const response = await axios.get(`${API_BASE_URL}/api/v1/products/categories/${category}`);
                 setProducts(response.data);
               
             } else {
-                const response = await axios.get('http://localhost:5000/api/v1/products/');
+                const response = await axios.get(`${API_BASE_URL}/api/v1/products/`);
                 setProducts(response.data);
            
             }

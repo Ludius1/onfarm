@@ -37,12 +37,13 @@ const LoginPage = () => {
             return{...prevState, [e.target.name]: e.target.value}
         })
     }
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
     const handleSubmit = async (e) => {
         event.preventDefault()
         console.log(userData)
         setIsLoading(true)
         try {
-           const response = await axios.post('http://localhost:5000/api/v1/user/login', userData)
+           const response = await axios.post(`${API_BASE_URL}/api/v1/user/login`, userData)
             
            if (response.status === 200) {
             console.log(response)

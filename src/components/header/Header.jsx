@@ -1,121 +1,99 @@
-import React, { useEffect, useRef } from 'react'
-import '../header/header.css'
+import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-import { toast } from 'sonner';
 import { FaChevronDown } from "react-icons/fa";
-import { headerNotification, rightHeaderleft, english, usd } from './headerData'
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import './header.css';
 
 const Header = () => {
-  const [isenglishDropDownopen, setisenglishDropDownopen] = useState(false)
-  const [isusdDropDownopen, setusdDropDownopen] = useState(false)
+  const [isenglishDropDownopen, setisenglishDropDownopen] = useState(false);
+  const [isusdDropDownopen, setusdDropDownopen] = useState(false);
   const [headerNotifications, setHeaderNotifications] = useState([]);
   const [content, setContent] = useState('');
-  const [newContent, setNewContent] = useState('');
 
-  useEffect(() => {
-    const fetchNotification = async () => {
-      const response = await axios.get('http://localhost:5000/api/v1/products/notification');
-      if (response.data) {
-        setContent(response.data.content);
-      }
-    };
-    fetchNotification();
-  }, []);
+  //   // const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '${API_BASE_URL}/api/v1';
 
-  const usdRef = useRef(null)
-  const engRef = useRef(null)
-  // console.log(usdRef)
+
+  // useEffect(() => {
+  //   const fetchNotification = async () => {
+  //     try {
+  //       const response = await axios.get(`${API_BASE_URL}/api/v1/products/notification`);
+  //       if (response.data) {
+  //         setContent(response.data.content);
+  //       }
+  //     } catch (error) {
+  //       console.error('Failed to fetch notifications:', error);
+  //     }
+  //   };
+  //   fetchNotification();
+  // }, [API_BASE_URL]);
+
+  // useEffect(() => {
+  //   fetch(`${API_BASE_URL}/api/v1/products/headerNotifications`)
+  //     .then((response) => response.json())
+  //     .then((data) => setHeaderNotifications(data))
+  //     .catch((error) => console.error('Failed to fetch header notifications:', error));
+  // }, [API_BASE_URL]);
+
+  const usdRef = useRef(null);
+  const engRef = useRef(null);
+
   const OutsideClick = (refState, ref) => {
     if (ref.current && !ref.current.contains(event.target)) {
-      // console.log("Outside click ")
-      refState(false)
-
+      refState(false);
     }
-  }
+  };
+
   useEffect(() => {
-    fetch('http://localhost:5000/api/v1/products/headerNotifications')
-      .then((response) => response.json())
-      .then((data) => setHeaderNotifications(data));
-  }, []);
-  useEffect(() => {
-    document.addEventListener('click', () => OutsideClick(setusdDropDownopen, usdRef))
-    document.addEventListener('click', () => OutsideClick(setisenglishDropDownopen, engRef))
+    document.addEventListener('click', () => OutsideClick(setusdDropDownopen, usdRef));
+    document.addEventListener('click', () => OutsideClick(setisenglishDropDownopen, engRef));
 
     return () => {
-      document.removeEventListener('click', () => OutsideClick(setusdDropDownopen, usdRef))
-      document.removeEventListener('click', () => OutsideClick(setisenglishDropDownopen, engRef))
-    }
-  }, [])
+      document.removeEventListener('click', () => OutsideClick(setusdDropDownopen, usdRef));
+      document.removeEventListener('click', () => OutsideClick(setisenglishDropDownopen, engRef));
+    };
+  }, []);
+
   return (
     <div className="header">
       <div className="main__header">
         <div className="left__header">
-      {/* {headerNotifications.map((notification) => (
-        // <span key={notification.id}>{notification.notice}</span>
-        <span>Order processing may be delayed due to system upgrades. Thanks for your patience!</span>
-      ))} */}
-
-      <span>{content}</span>
-
-   
-    </div>
-
+          <span>{content}</span>
+        </div>
         <div className="right__header">
           <div className="right__header__left">
-            {/* {rightHeaderleft.map((rightHeaderleft)  => (
-              <div className="rightHeaderleft" key={rightHeaderleft.id}>
-                <span>{rightHeaderleft.nav}</span>
-              </div>
-            ))} */}
             <div className="rightHeaderleft">
               <span>
-              <Link to="/error/404">Store Location</Link>
+                <Link to="/error/404">Store Location</Link>
               </span>
             </div>
-             
           </div>
-          <span className='border'></span>
+          <span className="border"></span>
           <div className="right__header__right">
-
             <div className="insideRightheader">
-
               <div className="rightHeaderrigghtEnglish" ref={engRef}>
                 <span>English</span>
-                <small><FaChevronDown onClick={() => setisenglishDropDownopen(!isenglishDropDownopen)} /></small>
-
+                <small>
+                  <FaChevronDown onClick={() => setisenglishDropDownopen(!isenglishDropDownopen)} />
+                </small>
                 <div className={`click__english__dropdrown ${isenglishDropDownopen ? 'showEnglishDropDown' : 'closeEnglishDropDown'}`}>
-                  {english.map((english) => (
-                    <div className="english__dropdown" key={english.id}>
-                      {english.list}
-                    </div>
-                  ))}
+                  {/* Map through languages */}
                 </div>
               </div>
-
               <div className="rightHeaderrigghtusd" ref={usdRef}>
                 <span>USD</span>
-                <small><FaChevronDown onClick={() => setusdDropDownopen(!isusdDropDownopen)} /></small>
+                <small>
+                  <FaChevronDown onClick={() => setusdDropDownopen(!isusdDropDownopen)} />
+                </small>
                 <div className={`click__usd__dropdrown ${isusdDropDownopen ? 'showEnglishDropDown' : 'closeEnglishDropDown'}`}>
-                  {usd.map((usd) => (
-                    <div className="usd__dropdown" key={usd.id}>
-                      {usd.list}
-                    </div>
-                  ))}
+                  {/* Map through currencies */}
                 </div>
               </div>
-
-
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

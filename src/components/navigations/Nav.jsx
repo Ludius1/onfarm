@@ -70,6 +70,16 @@ const Nav = () => {
         console.log(response.data.cart);
       })
       .catch((error) => console.error("Error fetching cart items:", error));
+
+      // .catch((error) => {
+      //   if (error.response && error.response.status === 401) {
+      //     // toast.error("Kindly login to add products to the cart");
+      //   } else {
+      //     toast.error("Error fetching cart items ");
+      //   }
+      //   console.error("Error adding to cart:", error);
+      
+      // })
   };
 
   const removeProduct = (productId) => {
@@ -248,8 +258,6 @@ const Nav = () => {
 
               </div>
             ) : (
-
-
               <div className=''>
 
                 <Link className="linkk lonk--mobil ijia" to='/login' onClick={handleLinkClick}> <span>< FaRegUser className="tikmtre" /></span> Login</Link>
@@ -373,7 +381,10 @@ const Nav = () => {
             </span>
 
             <div className="cart__list">
-              {products?.map((product) => (
+
+            {token ? (
+              <div className="">
+                      {products?.map((product) => (
                 <div className="each__cart">
                   <img src={product?.product?.productId?.prdDetailsId?.src[0]} alt="" />
                   <span className="cart__desc">
@@ -387,21 +398,43 @@ const Nav = () => {
                   <small><MdOutlineCancel onClick={() => removeProduct(product.product?.productId?._id)} className="delete" /></small>
                 </div>
               ))}
-            </div>
-
-
-            <div className="down__cart">
-              <div className="cart__calc">
-                <span className="total">
-                  SUBTOTAL:
-                  <small>${cartTotals.total}.00</small>
-                </span>
-
-                <Link to='/cart'>   <button className="view__cart">VIEW CART</button></Link>
-                <Link to='/checkout'>     <button className="checkout">CHECKOUT</button></Link>
 
               </div>
+            ) : (
+
+
+              <div className='spaw'>
+                Kindly login to add to cart
+              </div>
+            )}
+          
             </div>
+
+
+
+            
+            {token ? (
+              
+            <div className="down__cart">
+            <div className="cart__calc">
+              <span className="total">
+                SUBTOTAL:
+                <small>${cartTotals.total}.00</small>
+              </span>
+
+              <Link to='/cart'>   <button className="view__cart">VIEW CART</button></Link>
+              <Link to='/checkout'>     <button className="checkout">CHECKOUT</button></Link>
+
+            </div>
+          </div>
+            ) : (
+              <div className=''>
+
+                
+              </div>
+            )}
+
+            
             <span className='cart__promo'>Free shipping for orders <small>UNDER 10KM</small></span>
           </div>
 

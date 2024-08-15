@@ -62,8 +62,13 @@ function ShopDetails() {
         navigate("/cart");
       })
       .catch((error) => {
-        toast.error(error.message);
+        if (error.response && error.response.status === 401) {
+          toast.error("Kindly login to add products to the cart");
+        } else {
+          toast.error("Error adding to cart: " + error.message);
+        }
         console.error("Error adding to cart:", error);
+      
       })
        
      

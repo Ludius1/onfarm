@@ -149,6 +149,15 @@
     text-align: center;
     align-self: center;
 }
+.shop__categories {
+    gap: 20px;
+    overflow-x: scroll;
+    
+}
+.shop__categories::-webkit-scrollbar {
+    display: none;
+    
+}
 
 
 
@@ -157,7 +166,15 @@
 
 
 @media only screen and (max-width: 992px) {
-    
+    .shop__categories {
+        gap: 20px;
+        overflow-x: scroll;
+        
+    }
+    .shop__categories::-webkit-scrollbar {
+        display: none;
+        
+    }
     
   }
 

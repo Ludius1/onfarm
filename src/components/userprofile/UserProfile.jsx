@@ -32,6 +32,7 @@ const UserProfile = () => {
     const [featuredBrand, setFeaturedBrand] = useState(FeaturedBrand1);
     const [formAvatar, setFormAvatar] = useState({ avatar: null });
     const [isLoading, setIsLoading] = useState(false);
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
     // Fetch user data on component mount
     useEffect(() => {
@@ -47,7 +48,7 @@ const UserProfile = () => {
 
     const fetchUserData = async () => {
         try {
-            const response = await axios.get('${API_BASE_URL}/user/getuser', { headers });
+            const response = await axios.get(`${API_BASE_URL}/api/v1/user/getuser`, { headers });
             setFormData({
                 firstName: response.data.firstName,
                 lastName: response.data.lastName,
@@ -86,7 +87,7 @@ const UserProfile = () => {
             formDataWithAvatar.append('newPassword', formData.newPassword);
             formDataWithAvatar.append('confirmNewPassword', formData.confirmNewPassword);
 
-            const response = await axios.patch('${API_BASE_URL}/user/update-user', formDataWithAvatar, { headers });
+            const response = await axios.patch('http://localhost:5000/user/update-user', formDataWithAvatar, { headers });
 
             if (response.status === 200) {
                 console.log(response);

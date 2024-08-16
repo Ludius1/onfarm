@@ -7,6 +7,7 @@ import ProductCard from './../card/ProductCard';
 import ProductCartHead from '../productCartHead/ProductCartHead';
 
 const Weekly = () => {
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const [products, setProducts] = useState([]);
     // const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '${API_BASE_URL}';
   // console.log('API_BASE_URL:', (API_BASE_URL) )
